@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BookList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReservedBooks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BooksId" Type="int" Nullable="false" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ReturnTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="FinePrice" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BookList_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BookList" Type="Self.BookList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookList">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Members_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Members" Type="Self.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_BookList">
+          <End Role="BookList" Type="Self.BookList" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="BooksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_BookStatus">
+          <End Role="BookStatus" Type="Self.BookStatus" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BookStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryModelStoreContainer">
+          <EntitySet Name="BookList" EntityType="Self.BookList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookStatus" EntityType="Self.BookStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservedBooks" EntityType="Self.ReservedBooks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BookList_Users" Association="Self.FK_BookList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BookList" EntitySet="BookList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Members_Users" Association="Self.FK_Members_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_BookList" Association="Self.FK_ReservedBooks_BookList">
+            <End Role="BookList" EntitySet="BookList" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_BookStatus" Association="Self.FK_ReservedBooks_BookStatus">
+            <End Role="BookStatus" EntitySet="BookStatus" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_Members" Association="Self.FK_ReservedBooks_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_Users" Association="Self.FK_ReservedBooks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BookList_Users" FromRole="BookList" ToRole="Users" />
+          <NavigationProperty Name="ReservedBooks" Relationship="Self.FK_ReservedBooks_BookList" FromRole="BookList" ToRole="ReservedBooks" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="BookStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ReservedBook" Relationship="Self.FK_ReservedBooks_BookStatus" FromRole="BookStatus" ToRole="ReservedBooks" />
+        </EntityType>
+        <EntityType Name="ReservedBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BooksId" Type="Int32" Nullable="false" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ReturnTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="FinePrice" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookList" Relationship="Self.FK_ReservedBooks_BookList" FromRole="ReservedBooks" ToRole="BookList" />
+          <NavigationProperty Name="BookStatu" Relationship="Self.FK_ReservedBooks_BookStatus" FromRole="ReservedBooks" ToRole="BookStatus" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ReservedBooks_Users" FromRole="ReservedBooks" ToRole="Users" />
+          <NavigationProperty Name="Member" Relationship="LibraryModel.FK_ReservedBooks_Members" FromRole="ReservedBook" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BookLists" Relationship="Self.FK_BookList_Users" FromRole="Users" ToRole="BookList" />
+          <NavigationProperty Name="ReservedBook" Relationship="Self.FK_ReservedBooks_Users" FromRole="Users" ToRole="ReservedBooks" />
+          <NavigationProperty Name="Members" Relationship="LibraryModel.FK_Members_Users" FromRole="User" ToRole="Member" />
+        </EntityType>
+        <Association Name="FK_BookList_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="BookList" Type="Self.BookList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BookList">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_BookList">
+          <End Role="BookList" Type="Self.BookList" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="BooksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_BookStatus">
+          <End Role="BookStatus" Type="Self.BookStatu" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBook" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BookStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="ReservedBooks" Type="Self.ReservedBook" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBooks">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookLists" EntityType="Self.BookList" />
+          <EntitySet Name="BookStatus" EntityType="Self.BookStatu" />
+          <EntitySet Name="ReservedBooks" EntityType="Self.ReservedBook" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_BookList_Users" Association="Self.FK_BookList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BookList" EntitySet="BookLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_BookList" Association="Self.FK_ReservedBooks_BookList">
+            <End Role="BookList" EntitySet="BookLists" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_BookStatus" Association="Self.FK_ReservedBooks_BookStatus">
+            <End Role="BookStatus" EntitySet="BookStatus" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_Users" Association="Self.FK_ReservedBooks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ReservedBooks" EntitySet="ReservedBooks" />
+          </AssociationSet>
+          <EntitySet Name="Members" EntityType="LibraryModel.Member" />
+          <AssociationSet Name="FK_Members_Users" Association="LibraryModel.FK_Members_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReservedBooks_Members" Association="LibraryModel.FK_ReservedBooks_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="ReservedBook" EntitySet="ReservedBooks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="LibraryModel.FK_Members_Users" FromRole="Member" ToRole="User" />
+          <NavigationProperty Name="ReservedBook" Relationship="LibraryModel.FK_ReservedBooks_Members" FromRole="Member" ToRole="ReservedBook" />
+        </EntityType>
+        <Association Name="FK_Members_Users">
+          <End Type="LibraryModel.User" Role="User" Multiplicity="1" />
+          <End Type="LibraryModel.Member" Role="Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReservedBooks_Members">
+          <End Type="LibraryModel.Member" Role="Member" Multiplicity="1" />
+          <End Type="LibraryModel.ReservedBook" Role="ReservedBook" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReservedBook">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
+          <EntitySetMapping Name="BookLists">
+            <EntityTypeMapping TypeName="LibraryModel.BookList">
+              <MappingFragment StoreEntitySet="BookList">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookStatus">
+            <EntityTypeMapping TypeName="LibraryModel.BookStatu">
+              <MappingFragment StoreEntitySet="BookStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservedBooks">
+            <EntityTypeMapping TypeName="LibraryModel.ReservedBook">
+              <MappingFragment StoreEntitySet="ReservedBooks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BooksId" ColumnName="BooksId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="ReturnTime" ColumnName="ReturnTime" />
+                <ScalarProperty Name="FinePrice" ColumnName="FinePrice" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LibraryModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="LibraryModel.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
