@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Qeyd:
+1. Gecikən hər hünə görə kitabxana üzvü 1AZN məbləğində cərimələnməlidir!
+
+2.Kitabxana üzüvləri kitabı təhvil verərkən aldıqları vəziyyətində xəsarət yetirərsə 10AZN məbləğində cərimələnməlidir!
+
+3.Kitabxana üzvü 3 dəfə cərimələnərsə üzüvlükdən çıxarılmalıdır!</value>
+  </data>
 </root>

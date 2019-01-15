@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,19 +48,42 @@
             this.PbAddBook = new System.Windows.Forms.PictureBox();
             this.PbAddMember = new System.Windows.Forms.PictureBox();
             this.PbAddUser = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtMemberId = new System.Windows.Forms.TextBox();
+            this.BtnSearchMember = new System.Windows.Forms.Button();
+            this.TxtMemberFullName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CmbBookList = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.NumBookCount = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CmbBookStatus = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.NumFinePrice = new System.Windows.Forms.NumericUpDown();
+            this.BtnGetBook = new System.Windows.Forms.Button();
+            this.BtnTakeBook = new System.Windows.Forms.Button();
+            this.BtnDeleteReserve = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbReturnBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddMember)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddUser)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumBookCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 118);
+            this.label1.Location = new System.Drawing.Point(44, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 1;
@@ -69,7 +93,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(198, 118);
+            this.label2.Location = new System.Drawing.Point(337, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 18);
             this.label2.TabIndex = 3;
@@ -79,7 +103,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(450, 118);
+            this.label3.Location = new System.Drawing.Point(681, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 18);
             this.label3.TabIndex = 5;
@@ -89,7 +113,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(611, 118);
+            this.label5.Location = new System.Drawing.Point(993, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 9;
@@ -211,7 +235,7 @@
             // 
             this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
             this.PbReturnBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbReturnBook.Location = new System.Drawing.Point(635, 23);
+            this.PbReturnBook.Location = new System.Drawing.Point(1017, 23);
             this.PbReturnBook.Name = "PbReturnBook";
             this.PbReturnBook.Size = new System.Drawing.Size(85, 85);
             this.PbReturnBook.TabIndex = 8;
@@ -221,7 +245,7 @@
             // 
             this.PbAddBook.BackgroundImage = global::Library.Properties.Resources.addbook;
             this.PbAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbAddBook.Location = new System.Drawing.Point(436, 23);
+            this.PbAddBook.Location = new System.Drawing.Point(667, 23);
             this.PbAddBook.Name = "PbAddBook";
             this.PbAddBook.Size = new System.Drawing.Size(85, 85);
             this.PbAddBook.TabIndex = 4;
@@ -232,7 +256,7 @@
             // 
             this.PbAddMember.BackgroundImage = global::Library.Properties.Resources.addmember;
             this.PbAddMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbAddMember.Location = new System.Drawing.Point(219, 23);
+            this.PbAddMember.Location = new System.Drawing.Point(358, 23);
             this.PbAddMember.Name = "PbAddMember";
             this.PbAddMember.Size = new System.Drawing.Size(85, 85);
             this.PbAddMember.TabIndex = 2;
@@ -243,18 +267,225 @@
             // 
             this.PbAddUser.BackgroundImage = global::Library.Properties.Resources.adduser;
             this.PbAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbAddUser.Location = new System.Drawing.Point(18, 23);
+            this.PbAddUser.Location = new System.Drawing.Point(42, 23);
             this.PbAddUser.Name = "PbAddUser";
             this.PbAddUser.Size = new System.Drawing.Size(85, 85);
             this.PbAddUser.TabIndex = 0;
             this.PbAddUser.TabStop = false;
             this.PbAddUser.Click += new System.EventHandler(this.PbAddUser_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.BtnDeleteReserve);
+            this.groupBox2.Controls.Add(this.BtnTakeBook);
+            this.groupBox2.Controls.Add(this.BtnGetBook);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.NumFinePrice);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.CmbBookStatus);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.NumBookCount);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.CmbBookList);
+            this.groupBox2.Controls.Add(this.TxtMemberFullName);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.BtnSearchMember);
+            this.groupBox2.Controls.Add(this.TxtMemberId);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(1239, 23);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(593, 873);
+            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Kitabların təhvil-təslimi";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Üzüvlük nömrəsi";
+            // 
+            // TxtMemberId
+            // 
+            this.TxtMemberId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtMemberId.Location = new System.Drawing.Point(11, 109);
+            this.TxtMemberId.Name = "TxtMemberId";
+            this.TxtMemberId.Size = new System.Drawing.Size(216, 26);
+            this.TxtMemberId.TabIndex = 1;
+            // 
+            // BtnSearchMember
+            // 
+            this.BtnSearchMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearchMember.Location = new System.Drawing.Point(196, 155);
+            this.BtnSearchMember.Name = "BtnSearchMember";
+            this.BtnSearchMember.Size = new System.Drawing.Size(147, 43);
+            this.BtnSearchMember.TabIndex = 2;
+            this.BtnSearchMember.Text = "Üzvü Axtar";
+            this.BtnSearchMember.UseVisualStyleBackColor = true;
+            // 
+            // TxtMemberFullName
+            // 
+            this.TxtMemberFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtMemberFullName.Location = new System.Drawing.Point(324, 109);
+            this.TxtMemberFullName.Name = "TxtMemberFullName";
+            this.TxtMemberFullName.Size = new System.Drawing.Size(216, 26);
+            this.TxtMemberFullName.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(321, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 20);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Üzvün adı";
+            // 
+            // CmbBookList
+            // 
+            this.CmbBookList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbBookList.FormattingEnabled = true;
+            this.CmbBookList.Location = new System.Drawing.Point(9, 306);
+            this.CmbBookList.Name = "CmbBookList";
+            this.CmbBookList.Size = new System.Drawing.Size(216, 28);
+            this.CmbBookList.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 273);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 20);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Kitabı seçin";
+            // 
+            // NumBookCount
+            // 
+            this.NumBookCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumBookCount.Location = new System.Drawing.Point(323, 308);
+            this.NumBookCount.Name = "NumBookCount";
+            this.NumBookCount.Size = new System.Drawing.Size(215, 26);
+            this.NumBookCount.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(319, 273);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 20);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Say";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(6, 359);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(132, 20);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Kitabın Vəziyyəti";
+            // 
+            // CmbBookStatus
+            // 
+            this.CmbBookStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbBookStatus.FormattingEnabled = true;
+            this.CmbBookStatus.Location = new System.Drawing.Point(10, 389);
+            this.CmbBookStatus.Name = "CmbBookStatus";
+            this.CmbBookStatus.Size = new System.Drawing.Size(216, 28);
+            this.CmbBookStatus.TabIndex = 11;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(318, 359);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(126, 20);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Cərimə məbləği";
+            // 
+            // NumFinePrice
+            // 
+            this.NumFinePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumFinePrice.Location = new System.Drawing.Point(319, 391);
+            this.NumFinePrice.Name = "NumFinePrice";
+            this.NumFinePrice.Size = new System.Drawing.Size(216, 26);
+            this.NumFinePrice.TabIndex = 13;
+            // 
+            // BtnGetBook
+            // 
+            this.BtnGetBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGetBook.Location = new System.Drawing.Point(313, 457);
+            this.BtnGetBook.Name = "BtnGetBook";
+            this.BtnGetBook.Size = new System.Drawing.Size(131, 43);
+            this.BtnGetBook.TabIndex = 15;
+            this.BtnGetBook.Text = "Təhvil ver";
+            this.BtnGetBook.UseVisualStyleBackColor = true;
+            // 
+            // BtnTakeBook
+            // 
+            this.BtnTakeBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTakeBook.Location = new System.Drawing.Point(313, 506);
+            this.BtnTakeBook.Name = "BtnTakeBook";
+            this.BtnTakeBook.Size = new System.Drawing.Size(131, 43);
+            this.BtnTakeBook.TabIndex = 16;
+            this.BtnTakeBook.Text = "Təhvil al";
+            this.BtnTakeBook.UseVisualStyleBackColor = true;
+            // 
+            // BtnDeleteReserve
+            // 
+            this.BtnDeleteReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeleteReserve.Location = new System.Drawing.Point(450, 457);
+            this.BtnDeleteReserve.Name = "BtnDeleteReserve";
+            this.BtnDeleteReserve.Size = new System.Drawing.Size(131, 43);
+            this.BtnDeleteReserve.TabIndex = 17;
+            this.BtnDeleteReserve.Text = "Sil";
+            this.BtnDeleteReserve.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(10, 474);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(216, 26);
+            this.textBox1.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(7, 441);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(137, 20);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Gecikən gün sayı";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(8, 658);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(558, 198);
+            this.richTextBox1.TabIndex = 20;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 1055);
+            this.ClientSize = new System.Drawing.Size(1876, 1055);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.PbReturnBook);
             this.Controls.Add(this.label3);
@@ -274,6 +505,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbAddBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddMember)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddUser)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumBookCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +535,25 @@
         private System.Windows.Forms.DateTimePicker DtpReturnTime;
         private System.Windows.Forms.DateTimePicker DtpGivenTime;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button BtnDeleteReserve;
+        private System.Windows.Forms.Button BtnTakeBook;
+        private System.Windows.Forms.Button BtnGetBook;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown NumFinePrice;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox CmbBookStatus;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown NumBookCount;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox CmbBookList;
+        private System.Windows.Forms.TextBox TxtMemberFullName;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button BtnSearchMember;
+        private System.Windows.Forms.TextBox TxtMemberId;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label11;
     }
 }
