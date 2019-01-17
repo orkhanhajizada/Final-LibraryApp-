@@ -24,20 +24,21 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MemberName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MemberNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="MemberNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="BookCount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ReservedBooks">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BooksId" Type="int" Nullable="false" />
     <Property Name="MemberId" Type="int" Nullable="false" />
-    <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
-    <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
-    <Property Name="ReturnTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="ReturnTime" Type="datetime" />
     <Property Name="FinePrice" Type="int" Nullable="false" />
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
@@ -89,37 +90,37 @@
   </Association>
   <Association Name="FK_ReservedBooks_BookStatus">
     <End Role="BookStatus" Type="Self.BookStatus" Multiplicity="1" />
-    <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="0..1" />
+    <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="BookStatus">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ReservedBooks">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="StatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ReservedBooks_Members">
     <End Role="Members" Type="Self.Members" Multiplicity="1" />
-    <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="0..1" />
+    <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ReservedBooks">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="MemberId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ReservedBooks_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="0..1" />
+    <End Role="ReservedBooks" Type="Self.ReservedBooks" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ReservedBooks">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

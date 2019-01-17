@@ -20,21 +20,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ReservedBooks">
-      <EntityTypeMapping TypeName="LibraryModel.ReservedBook">
-        <MappingFragment StoreEntitySet="ReservedBooks">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="BooksId" ColumnName="BooksId" />
-          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-          <ScalarProperty Name="ReturnTime" ColumnName="ReturnTime" />
-          <ScalarProperty Name="FinePrice" ColumnName="FinePrice" />
-          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="LibraryModel.User">
         <MappingFragment StoreEntitySet="Users">
@@ -45,9 +30,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ReservedBooks">
+      <EntityTypeMapping TypeName="LibraryModel.ReservedBook">
+        <MappingFragment StoreEntitySet="ReservedBooks">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="FinePrice" ColumnName="FinePrice" />
+          <ScalarProperty Name="ReturnTime" ColumnName="ReturnTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="BooksId" ColumnName="BooksId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Members">
       <EntityTypeMapping TypeName="LibraryModel.Member">
         <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="BookCount" ColumnName="BookCount" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
           <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />

@@ -24,7 +24,6 @@ C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\b
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\bin\Debug\EntityFramework.xml
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.csprojAssemblyReference.cache
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.AddBooks.resources
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.Form1.resources
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.MainMenu.resources
@@ -36,3 +35,4 @@ C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\o
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.csproj.CopyComplete
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.exe
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.pdb
+C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.csprojAssemblyReference.cache

@@ -14,14 +14,22 @@ namespace Library.Models
     
     public partial class Member
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Member()
+        {
+            this.ReservedBooks = new HashSet<ReservedBook>();
+        }
+    
         public int Id { get; set; }
         public string MemberName { get; set; }
         public string Phone { get; set; }
         public string MemberNumber { get; set; }
         public System.DateTime CreateTime { get; set; }
         public int UserId { get; set; }
+        public int BookCount { get; set; }
     
         public virtual User User { get; set; }
-        public virtual ReservedBook ReservedBook { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ReservedBook> ReservedBooks { get; set; }
     }
 }

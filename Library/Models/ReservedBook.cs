@@ -17,9 +17,9 @@ namespace Library.Models
         public int Id { get; set; }
         public int BooksId { get; set; }
         public int MemberId { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
-        public System.TimeSpan ReturnTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        public Nullable<System.DateTime> ReturnTime { get; set; }
         public int FinePrice { get; set; }
         public int StatusId { get; set; }
         public int UserId { get; set; }

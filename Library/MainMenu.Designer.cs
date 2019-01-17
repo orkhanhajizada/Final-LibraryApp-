@@ -62,8 +62,6 @@
             this.NumFinePrice = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.CmbBookStatus = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.NumBookCount = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.CmbBookList = new System.Windows.Forms.ComboBox();
             this.TxtMemberFullName = new System.Windows.Forms.TextBox();
@@ -71,6 +69,14 @@
             this.BtnSearchMember = new System.Windows.Forms.Button();
             this.TxtMemberId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbReturnBook)).BeginInit();
@@ -79,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbAddUser)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumBookCount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -165,7 +170,17 @@
             // 
             // DgvGivenBooksList
             // 
+            this.DgvGivenBooksList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvGivenBooksList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvGivenBooksList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8});
             this.DgvGivenBooksList.Location = new System.Drawing.Point(24, 158);
             this.DgvGivenBooksList.Name = "DgvGivenBooksList";
             this.DgvGivenBooksList.RowTemplate.Height = 24;
@@ -292,8 +307,6 @@
             this.groupBox2.Controls.Add(this.NumFinePrice);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.CmbBookStatus);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.NumBookCount);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.CmbBookList);
             this.groupBox2.Controls.Add(this.TxtMemberFullName);
@@ -368,7 +381,7 @@
             // BtnDeleteReserve
             // 
             this.BtnDeleteReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDeleteReserve.Location = new System.Drawing.Point(414, 529);
+            this.BtnDeleteReserve.Location = new System.Drawing.Point(327, 529);
             this.BtnDeleteReserve.Name = "BtnDeleteReserve";
             this.BtnDeleteReserve.Size = new System.Drawing.Size(131, 43);
             this.BtnDeleteReserve.TabIndex = 17;
@@ -378,7 +391,7 @@
             // BtnTakeBook
             // 
             this.BtnTakeBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTakeBook.Location = new System.Drawing.Point(230, 529);
+            this.BtnTakeBook.Location = new System.Drawing.Point(95, 529);
             this.BtnTakeBook.Name = "BtnTakeBook";
             this.BtnTakeBook.Size = new System.Drawing.Size(131, 43);
             this.BtnTakeBook.TabIndex = 16;
@@ -388,12 +401,13 @@
             // BtnGetBook
             // 
             this.BtnGetBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGetBook.Location = new System.Drawing.Point(46, 529);
+            this.BtnGetBook.Location = new System.Drawing.Point(324, 350);
             this.BtnGetBook.Name = "BtnGetBook";
             this.BtnGetBook.Size = new System.Drawing.Size(131, 43);
             this.BtnGetBook.TabIndex = 15;
             this.BtnGetBook.Text = "Təhvil ver";
             this.BtnGetBook.UseVisualStyleBackColor = true;
+            this.BtnGetBook.Click += new System.EventHandler(this.BtnGetBook_Click);
             // 
             // label15
             // 
@@ -431,24 +445,6 @@
             this.CmbBookStatus.Name = "CmbBookStatus";
             this.CmbBookStatus.Size = new System.Drawing.Size(216, 28);
             this.CmbBookStatus.TabIndex = 11;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(324, 332);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(37, 20);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Say";
-            // 
-            // NumBookCount
-            // 
-            this.NumBookCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumBookCount.Location = new System.Drawing.Point(328, 367);
-            this.NumBookCount.Name = "NumBookCount";
-            this.NumBookCount.Size = new System.Drawing.Size(215, 26);
-            this.NumBookCount.TabIndex = 9;
             // 
             // label12
             // 
@@ -516,6 +512,47 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Üzüvlük nömrəsi";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Üzvün adı";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Üzüvlük nömrəsi";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Kitabın adı";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Təhvil tarixi";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Təslim tarixi";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Kitabın vəziyyəti";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "İşçi";
+            this.Column8.Name = "Column8";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -544,7 +581,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumBookCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,8 +615,6 @@
         private System.Windows.Forms.NumericUpDown NumFinePrice;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox CmbBookStatus;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown NumBookCount;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox CmbBookList;
         private System.Windows.Forms.TextBox TxtMemberFullName;
@@ -594,5 +628,13 @@
         private System.Windows.Forms.Button BtnSearchBook;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox TxtBookName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }
