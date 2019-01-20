@@ -92,7 +92,7 @@ namespace Library
 
             var bookslists = db.BookLists.Where(m => m.Name.Contains(TxtBookName.Text));
 
-            List<BookList> boks = db.BookLists.Where(i => DbFunctions.Like(TxtBookName.Text, "%Name%")).ToList();
+            List<BookList> books = db.BookLists.Where(i => DbFunctions.Like(TxtBookName.Text, "%Name%")).ToList();
 
             //Inputun yoxlanilmasi
             if (string.IsNullOrEmpty(TxtBookName.Text))
@@ -100,7 +100,7 @@ namespace Library
                 MessageBox.Show("Kitabın adını yazın");
             }
 
-            if (boks == null)
+            if (books == null)
             {
                 MessageBox.Show("Axtardığınız kitab tapılmadı");
             }
@@ -129,9 +129,15 @@ namespace Library
         {
             DgvGivenBooksList.Rows.Clear();
 
+            
+
             foreach (Models.ReservedBook table in db.ReservedBooks.ToList())
             {
-                DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.BookStatu.Status, table.User.UserName);
+                if(table.ReturnTime == null)
+                {
+                    DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.BookStatu.Status, table.User.UserName);
+
+                }
             }
 
         }
@@ -140,10 +146,14 @@ namespace Library
 
         private void BtnGetBook_Click(object sender, EventArgs e)
         {
-                int memId = Convert.ToInt32(TxtMemberFullName.Text.ToString().Split('-')[0]);
-                int bookId = Convert.ToInt32(CmbBookList.SelectedItem.ToString().Split('-')[0]);
-                int statusId = Convert.ToInt32(CmbBookStatus.SelectedItem.ToString().Split('-')[0]);
+            int memId = Convert.ToInt32(TxtMemberFullName.Text.ToString().Split('-')[0]);
+            int bookId = Convert.ToInt32(CmbBookList.SelectedItem.ToString().Split('-')[0]);
+            int statusId = Convert.ToInt32(CmbBookStatus.SelectedItem.ToString().Split('-')[0]);
 
+            //Qaytarilmamish kitabin sayinin 3den boyuk olub olmadigini yoxlamaq
+            var result = db.ReservedBooks.Where(b => memId == b.MemberId && b.ReturnTime == null).ToList().Count();
+            if (result <= 2)
+            {
                 //Inputlarin yoxlanilmasi
                 if ((string.IsNullOrEmpty(TxtMemberFullName.Text)) || (string.IsNullOrEmpty(CmbBookList.Text)) || (string.IsNullOrEmpty(CmbBookStatus.Text)))
                 {
@@ -166,6 +176,51 @@ namespace Library
 
                 FillGivenBooks();
             }
+            else
+            {
+                MessageBox.Show("Seçilən üzv artıq 3 kitab götürmüşdür!");
+            }
+        }
+
+        //Axtarish etmek
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            //Ada gore axtarmaq
+            if(CheckName.Checked == true)
+            {
+                if (!string.IsNullOrEmpty(TxtName.Text))
+                {
+                    DgvGivenBooksList.Rows.Clear();
+                    var members = db.ReservedBooks.Where(m => m.Member.MemberName.Contains(TxtName.Text));
+
+                    foreach (var search in members)
+                    {
+                        DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.User.UserName);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız üzvün adını yazın!");
+                }
+               
+            }
+
+            //Verilme tarixine gore axtarmaq
+            //if (checkGiven.Checked == true)
+            //{
+            //    DgvGivenBooksList.Rows.Clear();
+            //    DateTime timeStart = DtpGivenTime.Value;
+            //    var startTime = db.ReservedBooks.Where(m => timeStart = m.StartTime);
+
+            //    foreach (var search in startTime)
+            //    {
+            //        DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.User.UserName);
+
+            //    }
+
+            //}
+        }
     };
 }
 

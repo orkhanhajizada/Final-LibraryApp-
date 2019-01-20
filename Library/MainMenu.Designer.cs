@@ -37,6 +37,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.DgvGivenBooksList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.TxtMemberNumber = new System.Windows.Forms.TextBox();
@@ -69,14 +77,10 @@
             this.BtnSearchMember = new System.Windows.Forms.Button();
             this.TxtMemberId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckName = new System.Windows.Forms.CheckBox();
+            this.checkGiven = new System.Windows.Forms.CheckBox();
+            this.checkReturn = new System.Windows.Forms.CheckBox();
+            this.checkId = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbReturnBook)).BeginInit();
@@ -129,6 +133,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkId);
+            this.groupBox1.Controls.Add(this.checkReturn);
+            this.groupBox1.Controls.Add(this.checkGiven);
+            this.groupBox1.Controls.Add(this.CheckName);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.BtnSearch);
             this.groupBox1.Controls.Add(this.DgvGivenBooksList);
@@ -139,10 +147,10 @@
             this.groupBox1.Controls.Add(this.DtpReturnTime);
             this.groupBox1.Controls.Add(this.DtpGivenTime);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 214);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1141, 682);
+            this.groupBox1.Size = new System.Drawing.Size(1258, 682);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Verilmiş Kitablar";
@@ -167,6 +175,7 @@
             this.BtnSearch.Size = new System.Drawing.Size(71, 64);
             this.BtnSearch.TabIndex = 21;
             this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // DgvGivenBooksList
             // 
@@ -184,8 +193,49 @@
             this.DgvGivenBooksList.Location = new System.Drawing.Point(24, 158);
             this.DgvGivenBooksList.Name = "DgvGivenBooksList";
             this.DgvGivenBooksList.RowTemplate.Height = 24;
-            this.DgvGivenBooksList.Size = new System.Drawing.Size(1093, 459);
+            this.DgvGivenBooksList.Size = new System.Drawing.Size(1217, 459);
             this.DgvGivenBooksList.TabIndex = 10;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Üzvün adı";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Üzüvlük nömrəsi";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Kitabın adı";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Təhvil tarixi";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Təslim tarixi";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Kitabın vəziyyəti";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "İşçi";
+            this.Column8.Name = "Column8";
             // 
             // label9
             // 
@@ -238,6 +288,7 @@
             this.DtpGivenTime.Name = "DtpGivenTime";
             this.DtpGivenTime.Size = new System.Drawing.Size(200, 26);
             this.DtpGivenTime.TabIndex = 16;
+            this.DtpGivenTime.Value = new System.DateTime(2019, 1, 20, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -315,7 +366,7 @@
             this.groupBox2.Controls.Add(this.TxtMemberId);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1239, 23);
+            this.groupBox2.Location = new System.Drawing.Point(1319, 23);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(593, 873);
             this.groupBox2.TabIndex = 23;
@@ -354,9 +405,9 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(8, 658);
+            this.richTextBox1.Location = new System.Drawing.Point(8, 607);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(558, 198);
+            this.richTextBox1.Size = new System.Drawing.Size(558, 249);
             this.richTextBox1.TabIndex = 20;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
@@ -512,52 +563,47 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Üzüvlük nömrəsi";
             // 
-            // Column1
+            // CheckName
             // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
+            this.CheckName.AutoSize = true;
+            this.CheckName.Location = new System.Drawing.Point(56, 58);
+            this.CheckName.Name = "CheckName";
+            this.CheckName.Size = new System.Drawing.Size(18, 17);
+            this.CheckName.TabIndex = 22;
+            this.CheckName.UseVisualStyleBackColor = true;
             // 
-            // Column2
+            // checkGiven
             // 
-            this.Column2.HeaderText = "Üzvün adı";
-            this.Column2.Name = "Column2";
+            this.checkGiven.AutoSize = true;
+            this.checkGiven.Location = new System.Drawing.Point(320, 56);
+            this.checkGiven.Name = "checkGiven";
+            this.checkGiven.Size = new System.Drawing.Size(18, 17);
+            this.checkGiven.TabIndex = 23;
+            this.checkGiven.UseVisualStyleBackColor = true;
             // 
-            // Column3
+            // checkReturn
             // 
-            this.Column3.HeaderText = "Üzüvlük nömrəsi";
-            this.Column3.Name = "Column3";
+            this.checkReturn.AutoSize = true;
+            this.checkReturn.Location = new System.Drawing.Point(576, 58);
+            this.checkReturn.Name = "checkReturn";
+            this.checkReturn.Size = new System.Drawing.Size(18, 17);
+            this.checkReturn.TabIndex = 24;
+            this.checkReturn.UseVisualStyleBackColor = true;
             // 
-            // Column4
+            // checkId
             // 
-            this.Column4.HeaderText = "Kitabın adı";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Təhvil tarixi";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Təslim tarixi";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Kitabın vəziyyəti";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "İşçi";
-            this.Column8.Name = "Column8";
+            this.checkId.AutoSize = true;
+            this.checkId.Location = new System.Drawing.Point(807, 58);
+            this.checkId.Name = "checkId";
+            this.checkId.Size = new System.Drawing.Size(18, 17);
+            this.checkId.TabIndex = 25;
+            this.checkId.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1876, 1055);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.PbReturnBook);
@@ -636,5 +682,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.CheckBox checkId;
+        private System.Windows.Forms.CheckBox checkReturn;
+        private System.Windows.Forms.CheckBox checkGiven;
+        private System.Windows.Forms.CheckBox CheckName;
     }
 }
