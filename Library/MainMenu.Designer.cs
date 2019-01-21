@@ -34,8 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkId = new System.Windows.Forms.CheckBox();
+            this.checkReturn = new System.Windows.Forms.CheckBox();
+            this.checkGiven = new System.Windows.Forms.CheckBox();
+            this.CheckName = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.BtnSearch = new System.Windows.Forms.Button();
             this.DgvGivenBooksList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +55,6 @@
             this.DtpReturnTime = new System.Windows.Forms.DateTimePicker();
             this.DtpGivenTime = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.PbReturnBook = new System.Windows.Forms.PictureBox();
-            this.PbAddBook = new System.Windows.Forms.PictureBox();
-            this.PbAddMember = new System.Windows.Forms.PictureBox();
-            this.PbAddUser = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BtnSearchBook = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -77,18 +76,20 @@
             this.BtnSearchMember = new System.Windows.Forms.Button();
             this.TxtMemberId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.CheckName = new System.Windows.Forms.CheckBox();
-            this.checkGiven = new System.Windows.Forms.CheckBox();
-            this.checkReturn = new System.Windows.Forms.CheckBox();
-            this.checkId = new System.Windows.Forms.CheckBox();
+            this.PbReturnBook = new System.Windows.Forms.PictureBox();
+            this.PbAddBook = new System.Windows.Forms.PictureBox();
+            this.PbAddMember = new System.Windows.Forms.PictureBox();
+            this.PbAddUser = new System.Windows.Forms.PictureBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
+            this.BtnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbReturnBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddMember)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddUser)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -133,6 +134,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnRefresh);
             this.groupBox1.Controls.Add(this.checkId);
             this.groupBox1.Controls.Add(this.checkReturn);
             this.groupBox1.Controls.Add(this.checkGiven);
@@ -155,6 +157,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Verilmiş Kitablar";
             // 
+            // checkId
+            // 
+            this.checkId.AutoSize = true;
+            this.checkId.Location = new System.Drawing.Point(828, 58);
+            this.checkId.Name = "checkId";
+            this.checkId.Size = new System.Drawing.Size(18, 17);
+            this.checkId.TabIndex = 25;
+            this.checkId.UseVisualStyleBackColor = true;
+            // 
+            // checkReturn
+            // 
+            this.checkReturn.AutoSize = true;
+            this.checkReturn.Location = new System.Drawing.Point(599, 58);
+            this.checkReturn.Name = "checkReturn";
+            this.checkReturn.Size = new System.Drawing.Size(18, 17);
+            this.checkReturn.TabIndex = 24;
+            this.checkReturn.UseVisualStyleBackColor = true;
+            // 
+            // checkGiven
+            // 
+            this.checkGiven.AutoSize = true;
+            this.checkGiven.Location = new System.Drawing.Point(354, 56);
+            this.checkGiven.Name = "checkGiven";
+            this.checkGiven.Size = new System.Drawing.Size(18, 17);
+            this.checkGiven.TabIndex = 23;
+            this.checkGiven.UseVisualStyleBackColor = true;
+            // 
+            // CheckName
+            // 
+            this.CheckName.AutoSize = true;
+            this.CheckName.Location = new System.Drawing.Point(67, 58);
+            this.CheckName.Name = "CheckName";
+            this.CheckName.Size = new System.Drawing.Size(18, 17);
+            this.CheckName.TabIndex = 22;
+            this.CheckName.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -164,18 +202,6 @@
             this.label6.Size = new System.Drawing.Size(29, 20);
             this.label6.TabIndex = 13;
             this.label6.Text = "Ad";
-            // 
-            // BtnSearch
-            // 
-            this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
-            this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSearch.Location = new System.Drawing.Point(861, 56);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(71, 64);
-            this.BtnSearch.TabIndex = 21;
-            this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // DgvGivenBooksList
             // 
@@ -260,7 +286,7 @@
             this.TxtMemberNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtMemberNumber.Location = new System.Drawing.Point(671, 85);
             this.TxtMemberNumber.Name = "TxtMemberNumber";
-            this.TxtMemberNumber.Size = new System.Drawing.Size(155, 26);
+            this.TxtMemberNumber.Size = new System.Drawing.Size(184, 26);
             this.TxtMemberNumber.TabIndex = 19;
             // 
             // label7
@@ -276,6 +302,7 @@
             // DtpReturnTime
             // 
             this.DtpReturnTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpReturnTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtpReturnTime.Location = new System.Drawing.Point(438, 84);
             this.DtpReturnTime.Name = "DtpReturnTime";
             this.DtpReturnTime.Size = new System.Drawing.Size(200, 26);
@@ -284,6 +311,7 @@
             // DtpGivenTime
             // 
             this.DtpGivenTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpGivenTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtpGivenTime.Location = new System.Drawing.Point(206, 84);
             this.DtpGivenTime.Name = "DtpGivenTime";
             this.DtpGivenTime.Size = new System.Drawing.Size(200, 26);
@@ -299,49 +327,6 @@
             this.label8.Size = new System.Drawing.Size(136, 20);
             this.label8.TabIndex = 17;
             this.label8.Text = "Qaytarılma Tarixi";
-            // 
-            // PbReturnBook
-            // 
-            this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
-            this.PbReturnBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbReturnBook.Location = new System.Drawing.Point(978, 23);
-            this.PbReturnBook.Name = "PbReturnBook";
-            this.PbReturnBook.Size = new System.Drawing.Size(85, 85);
-            this.PbReturnBook.TabIndex = 8;
-            this.PbReturnBook.TabStop = false;
-            // 
-            // PbAddBook
-            // 
-            this.PbAddBook.BackgroundImage = global::Library.Properties.Resources.addbook;
-            this.PbAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbAddBook.Location = new System.Drawing.Point(667, 23);
-            this.PbAddBook.Name = "PbAddBook";
-            this.PbAddBook.Size = new System.Drawing.Size(85, 85);
-            this.PbAddBook.TabIndex = 4;
-            this.PbAddBook.TabStop = false;
-            this.PbAddBook.Click += new System.EventHandler(this.PbAddBook_Click);
-            // 
-            // PbAddMember
-            // 
-            this.PbAddMember.BackgroundImage = global::Library.Properties.Resources.addmember;
-            this.PbAddMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbAddMember.Location = new System.Drawing.Point(358, 23);
-            this.PbAddMember.Name = "PbAddMember";
-            this.PbAddMember.Size = new System.Drawing.Size(85, 85);
-            this.PbAddMember.TabIndex = 2;
-            this.PbAddMember.TabStop = false;
-            this.PbAddMember.Click += new System.EventHandler(this.PbAddMember_Click);
-            // 
-            // PbAddUser
-            // 
-            this.PbAddUser.BackgroundImage = global::Library.Properties.Resources.adduser;
-            this.PbAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PbAddUser.Location = new System.Drawing.Point(42, 23);
-            this.PbAddUser.Name = "PbAddUser";
-            this.PbAddUser.Size = new System.Drawing.Size(85, 85);
-            this.PbAddUser.TabIndex = 0;
-            this.PbAddUser.TabStop = false;
-            this.PbAddUser.Click += new System.EventHandler(this.PbAddUser_Click);
             // 
             // groupBox2
             // 
@@ -563,41 +548,72 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Üzüvlük nömrəsi";
             // 
-            // CheckName
+            // PbReturnBook
             // 
-            this.CheckName.AutoSize = true;
-            this.CheckName.Location = new System.Drawing.Point(56, 58);
-            this.CheckName.Name = "CheckName";
-            this.CheckName.Size = new System.Drawing.Size(18, 17);
-            this.CheckName.TabIndex = 22;
-            this.CheckName.UseVisualStyleBackColor = true;
+            this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
+            this.PbReturnBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbReturnBook.Location = new System.Drawing.Point(978, 23);
+            this.PbReturnBook.Name = "PbReturnBook";
+            this.PbReturnBook.Size = new System.Drawing.Size(85, 85);
+            this.PbReturnBook.TabIndex = 8;
+            this.PbReturnBook.TabStop = false;
             // 
-            // checkGiven
+            // PbAddBook
             // 
-            this.checkGiven.AutoSize = true;
-            this.checkGiven.Location = new System.Drawing.Point(320, 56);
-            this.checkGiven.Name = "checkGiven";
-            this.checkGiven.Size = new System.Drawing.Size(18, 17);
-            this.checkGiven.TabIndex = 23;
-            this.checkGiven.UseVisualStyleBackColor = true;
+            this.PbAddBook.BackgroundImage = global::Library.Properties.Resources.addbook;
+            this.PbAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbAddBook.Location = new System.Drawing.Point(667, 23);
+            this.PbAddBook.Name = "PbAddBook";
+            this.PbAddBook.Size = new System.Drawing.Size(85, 85);
+            this.PbAddBook.TabIndex = 4;
+            this.PbAddBook.TabStop = false;
+            this.PbAddBook.Click += new System.EventHandler(this.PbAddBook_Click);
             // 
-            // checkReturn
+            // PbAddMember
             // 
-            this.checkReturn.AutoSize = true;
-            this.checkReturn.Location = new System.Drawing.Point(576, 58);
-            this.checkReturn.Name = "checkReturn";
-            this.checkReturn.Size = new System.Drawing.Size(18, 17);
-            this.checkReturn.TabIndex = 24;
-            this.checkReturn.UseVisualStyleBackColor = true;
+            this.PbAddMember.BackgroundImage = global::Library.Properties.Resources.addmember;
+            this.PbAddMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbAddMember.Location = new System.Drawing.Point(358, 23);
+            this.PbAddMember.Name = "PbAddMember";
+            this.PbAddMember.Size = new System.Drawing.Size(85, 85);
+            this.PbAddMember.TabIndex = 2;
+            this.PbAddMember.TabStop = false;
+            this.PbAddMember.Click += new System.EventHandler(this.PbAddMember_Click);
             // 
-            // checkId
+            // PbAddUser
             // 
-            this.checkId.AutoSize = true;
-            this.checkId.Location = new System.Drawing.Point(807, 58);
-            this.checkId.Name = "checkId";
-            this.checkId.Size = new System.Drawing.Size(18, 17);
-            this.checkId.TabIndex = 25;
-            this.checkId.UseVisualStyleBackColor = true;
+            this.PbAddUser.BackgroundImage = global::Library.Properties.Resources.adduser;
+            this.PbAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbAddUser.Location = new System.Drawing.Point(42, 23);
+            this.PbAddUser.Name = "PbAddUser";
+            this.PbAddUser.Size = new System.Drawing.Size(85, 85);
+            this.PbAddUser.TabIndex = 0;
+            this.PbAddUser.TabStop = false;
+            this.PbAddUser.Click += new System.EventHandler(this.PbAddUser_Click);
+            // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
+            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRefresh.Location = new System.Drawing.Point(1099, 55);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(71, 64);
+            this.BtnRefresh.TabIndex = 26;
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
+            // BtnSearch
+            // 
+            this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
+            this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearch.Location = new System.Drawing.Point(964, 56);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(71, 64);
+            this.BtnSearch.TabIndex = 21;
+            this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // MainMenu
             // 
@@ -620,13 +636,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbReturnBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddMember)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbAddUser)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumFinePrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,5 +702,6 @@
         private System.Windows.Forms.CheckBox checkReturn;
         private System.Windows.Forms.CheckBox checkGiven;
         private System.Windows.Forms.CheckBox CheckName;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }

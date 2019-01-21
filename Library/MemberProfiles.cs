@@ -132,6 +132,74 @@ namespace Library
             }
         }
 
-        
+
+        //Uzv axtarmaq
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            //Ada gore axtarmaq
+            if (CheckName.Checked == true)
+            {
+                DgvMembers.Rows.Clear();
+
+                var members = db.Members.Where(m => m.MemberName.Contains(TxtSerachName.Text));
+
+                if (!string.IsNullOrEmpty(TxtSerachName.Text))
+                {
+                    if (members != null)
+                    {
+                        foreach (var search in members)
+                        {
+                            DgvMembers.Rows.Add(search.Id, search.MemberName, search.Phone, search.MemberNumber.ToString(), search.CreateTime.ToString("dd/MM/yyyy"), search.User.UserName);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız üzvün adını yazın!");
+                }
+
+            }
+
+            //Uzv nomresine gore axtarmaq
+            if (checkId.Checked == true)
+            {
+                DgvMembers.Rows.Clear();
+
+                var memberNumber = db.Members.Where(m => m.MemberNumber.Contains(TxtMemberNumber.Text));
+
+                if (!string.IsNullOrEmpty(TxtMemberNumber.Text))
+                {
+                    if (memberNumber != null)
+                    {
+                        foreach (var numbers in memberNumber)
+                        {
+                            DgvMembers.Rows.Add(numbers.Id, numbers.MemberName, numbers.Phone, numbers.MemberNumber.ToString(), numbers.CreateTime.ToString("dd/MM/yyyy"), numbers.User.UserName);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız üzvün üzüvlük nomrəsini yazın!");
+                }
+            }
+        }
+
+        //Axtarishi refresh etmek
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            TxtSerachName.Clear();
+            TxtMemberNumber.Clear();
+            FillMembers();
+        }
     }
 }
+

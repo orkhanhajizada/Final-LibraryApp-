@@ -26,7 +26,7 @@ namespace Library.Models
     
         public virtual BookList BookList { get; set; }
         public virtual BookStatu BookStatu { get; set; }
-        public virtual User User { get; set; }
         public virtual Member Member { get; set; }
+        public virtual User User { get; set; }
     }
 }

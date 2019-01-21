@@ -86,7 +86,7 @@ namespace Library
             BtnUpdateBook.Visible = false;
         }
 
-        //Datagridview`dan user sechmek
+        //Datagridview`dan kitab sechmek
 
         private void DgvBookList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -102,6 +102,7 @@ namespace Library
             BtnUpdateBook.Visible = true;
         }
 
+        //Kitabi update etmek
         private void BtnUpdateBook_Click(object sender, EventArgs e)
         {
             if ((string.IsNullOrEmpty(TxtName.Text)))
@@ -119,6 +120,7 @@ namespace Library
             Reset();
         }
 
+        //Kitabi silmek
         private void BtnDeleteBook_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
@@ -130,6 +132,41 @@ namespace Library
 
                 Reset();
             }
+        }
+
+
+        //Kitab axtarmaq
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            DgvBookList.Rows.Clear();
+
+            var book = db.BookLists.Where(m => m.Name.Contains(TxtSearchBook.Text));
+
+            if (!string.IsNullOrEmpty(TxtSearchBook.Text))
+            {
+                if (book != null)
+                {
+                    foreach (var search in book)
+                    {
+                        DgvBookList.Rows.Add(search.Id, search.Name, search.Count, search.CreateTime.ToString("dd/MM/yyyy"), search.User.UserName);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Axtardığınız üzvün adını yazın!");
+            }
+        }
+        //Axtarishi reflesh etmek
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            TxtSearchBook.Clear();
+            FillBooks();
         }
     }
 }

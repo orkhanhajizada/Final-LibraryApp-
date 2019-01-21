@@ -36,9 +36,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BooksId" Type="int" Nullable="false" />
     <Property Name="MemberId" Type="int" Nullable="false" />
-    <Property Name="StartTime" Type="datetime" Nullable="false" />
-    <Property Name="EndTime" Type="datetime" Nullable="false" />
-    <Property Name="ReturnTime" Type="datetime" />
+    <Property Name="StartTime" Type="date" Nullable="false" />
+    <Property Name="EndTime" Type="date" Nullable="false" />
+    <Property Name="ReturnTime" Type="date" />
     <Property Name="FinePrice" Type="int" Nullable="false" />
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />

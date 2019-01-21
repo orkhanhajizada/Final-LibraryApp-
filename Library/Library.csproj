@@ -176,6 +176,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\edit_find.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\returnbook.png" />

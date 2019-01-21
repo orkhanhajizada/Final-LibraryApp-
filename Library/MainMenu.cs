@@ -169,7 +169,7 @@ namespace Library
                     StatusId = statusId,
                     UserId = sentUser.Id,
                     StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddDays(30)
+                    EndTime = DateTime.Now.AddMonths(1)
                 };
                 db.ReservedBooks.Add(res);
                 db.SaveChanges();
@@ -188,16 +188,24 @@ namespace Library
             //Ada gore axtarmaq
             if(CheckName.Checked == true)
             {
+                DgvGivenBooksList.Rows.Clear();
+
+                var members = db.ReservedBooks.Where(m => m.Member.MemberName.Contains(TxtName.Text));
+
                 if (!string.IsNullOrEmpty(TxtName.Text))
                 {
-                    DgvGivenBooksList.Rows.Clear();
-                    var members = db.ReservedBooks.Where(m => m.Member.MemberName.Contains(TxtName.Text));
-
-                    foreach (var search in members)
+                    if (members != null)
                     {
-                        DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.User.UserName);
-
+                        foreach (var search in members)
+                        {
+                            DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.User.UserName);
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
+                    }
+                    
                 }
                 else
                 {
@@ -207,19 +215,82 @@ namespace Library
             }
 
             //Verilme tarixine gore axtarmaq
-            //if (checkGiven.Checked == true)
-            //{
-            //    DgvGivenBooksList.Rows.Clear();
-            //    DateTime timeStart = DtpGivenTime.Value;
-            //    var startTime = db.ReservedBooks.Where(m => timeStart = m.StartTime);
+            if (checkGiven.Checked == true)
+            {
+                DgvGivenBooksList.Rows.Clear();
 
-            //    foreach (var search in startTime)
-            //    {
-            //        DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.User.UserName);
+                var startTime = db.ReservedBooks.Where(m => m.StartTime == DtpGivenTime.Value.Date);
+                if (startTime != null)
+                {
+                    foreach (var giveTime in startTime)
+                    {
+                        DgvGivenBooksList.Rows.Add(giveTime.Id.ToString(), giveTime.Member.MemberName, giveTime.Member.MemberNumber, giveTime.BookList.Name, giveTime.StartTime.ToString("dd/MM/yyyy"), giveTime.EndTime.ToString("dd/MM/yyyy"), giveTime.BookStatu.Status, giveTime.User.UserName);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız tarixə uyğun nəticə tapılmadı!");
+                }
+            }
 
-            //    }
+            //Qaytarilma tarixine gore axtarmaq
+            if (checkReturn.Checked == true)
+            {
+                DgvGivenBooksList.Rows.Clear();
 
-            //}
+                var endTime = db.ReservedBooks.Where(m => m.EndTime == DtpReturnTime.Value.Date);
+                if (endTime != null)
+                {
+                    foreach (var returnTime in endTime)
+                    {
+                        DgvGivenBooksList.Rows.Add(returnTime.Id.ToString(), returnTime.Member.MemberName, returnTime.Member.MemberNumber, returnTime.BookList.Name, returnTime.StartTime.ToString("dd/MM/yyyy"), returnTime.EndTime.ToString("dd/MM/yyyy"), returnTime.BookStatu.Status, returnTime.User.UserName);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız tarixə uyğun nəticə tapılmadı!");
+                }
+            }
+
+            //Uzv nomresine gore axtarmaq
+            if (checkId.Checked == true)
+            {
+                DgvGivenBooksList.Rows.Clear();
+
+                var memberNumber = db.ReservedBooks.Where(m => m.Member.MemberNumber.Contains(TxtMemberNumber.Text));
+
+                if (!string.IsNullOrEmpty(TxtMemberNumber.Text))
+                {
+                   if(memberNumber != null)
+                    {
+                        foreach (var numbers in memberNumber)
+                        {
+                            DgvGivenBooksList.Rows.Add(numbers.Id.ToString(), numbers.Member.MemberName, numbers.Member.MemberNumber, numbers.BookList.Name, numbers.StartTime.ToString("dd/MM/yyyy"), numbers.EndTime.ToString("dd/MM/yyyy"), numbers.BookStatu.Status, numbers.User.UserName);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız üzvün üzüvlük nomrəsini yazın!");
+                }
+            }
+        }
+
+        //Axtarishi refresh etmek
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            //Inputlarin ve checkboxlarin ichini temizlemek
+            TxtName.Clear();
+            TxtMemberNumber.Clear();
+            CheckName.Checked = false;
+            checkReturn.Checked = false;
+            checkGiven.Checked = false;
+            checkId.Checked = false;
+            FillGivenBooks();
         }
     };
 }
