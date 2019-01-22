@@ -111,7 +111,7 @@
     <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="ReturnTime" Type="DateTime" Precision="0" />
-    <Property Name="FinePrice" Type="Int32" Nullable="false" />
+    <Property Name="FinePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="StatusId" Type="Int32" Nullable="false" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="BookList" Relationship="LibraryModel.FK_ReservedBooks_BookList" FromRole="ReservedBook" ToRole="BookList" />

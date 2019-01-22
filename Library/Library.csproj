@@ -112,6 +112,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnBookMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnBookMenu.Designer.cs">
+      <DependentUpon>ReturnBookMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkerProfiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReturnBookMenu.resx">
+      <DependentUpon>ReturnBookMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkerProfiles.resx">
       <DependentUpon>WorkerProfiles.cs</DependentUpon>
     </EmbeddedResource>

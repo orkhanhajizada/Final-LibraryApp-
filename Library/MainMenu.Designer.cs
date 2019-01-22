@@ -60,7 +60,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.TxtBookName = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtDelayedDays = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.BtnDeleteReserve = new System.Windows.Forms.Button();
             this.BtnTakeBook = new System.Windows.Forms.Button();
@@ -76,12 +76,16 @@
             this.BtnSearchMember = new System.Windows.Forms.Button();
             this.TxtMemberId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.checkBookName = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxtSearchBook = new System.Windows.Forms.TextBox();
             this.PbReturnBook = new System.Windows.Forms.PictureBox();
             this.PbAddBook = new System.Windows.Forms.PictureBox();
             this.PbAddMember = new System.Windows.Forms.PictureBox();
             this.PbAddUser = new System.Windows.Forms.PictureBox();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
+            this.LblId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -134,6 +138,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBookName);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.TxtSearchBook);
             this.groupBox1.Controls.Add(this.BtnRefresh);
             this.groupBox1.Controls.Add(this.checkId);
             this.groupBox1.Controls.Add(this.checkReturn);
@@ -152,7 +159,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 214);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1258, 682);
+            this.groupBox1.Size = new System.Drawing.Size(1274, 682);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Verilmiş Kitablar";
@@ -160,48 +167,52 @@
             // checkId
             // 
             this.checkId.AutoSize = true;
-            this.checkId.Location = new System.Drawing.Point(828, 58);
+            this.checkId.Location = new System.Drawing.Point(981, 58);
             this.checkId.Name = "checkId";
             this.checkId.Size = new System.Drawing.Size(18, 17);
             this.checkId.TabIndex = 25;
             this.checkId.UseVisualStyleBackColor = true;
+            this.checkId.CheckedChanged += new System.EventHandler(this.checkId_CheckedChanged);
             // 
             // checkReturn
             // 
             this.checkReturn.AutoSize = true;
-            this.checkReturn.Location = new System.Drawing.Point(599, 58);
+            this.checkReturn.Location = new System.Drawing.Point(752, 58);
             this.checkReturn.Name = "checkReturn";
             this.checkReturn.Size = new System.Drawing.Size(18, 17);
             this.checkReturn.TabIndex = 24;
             this.checkReturn.UseVisualStyleBackColor = true;
+            this.checkReturn.CheckedChanged += new System.EventHandler(this.checkReturn_CheckedChanged);
             // 
             // checkGiven
             // 
             this.checkGiven.AutoSize = true;
-            this.checkGiven.Location = new System.Drawing.Point(354, 56);
+            this.checkGiven.Location = new System.Drawing.Point(507, 56);
             this.checkGiven.Name = "checkGiven";
             this.checkGiven.Size = new System.Drawing.Size(18, 17);
             this.checkGiven.TabIndex = 23;
             this.checkGiven.UseVisualStyleBackColor = true;
+            this.checkGiven.CheckedChanged += new System.EventHandler(this.checkGiven_CheckedChanged);
             // 
             // CheckName
             // 
             this.CheckName.AutoSize = true;
-            this.CheckName.Location = new System.Drawing.Point(67, 58);
+            this.CheckName.Location = new System.Drawing.Point(105, 54);
             this.CheckName.Name = "CheckName";
             this.CheckName.Size = new System.Drawing.Size(18, 17);
             this.CheckName.TabIndex = 22;
             this.CheckName.UseVisualStyleBackColor = true;
+            this.CheckName.CheckedChanged += new System.EventHandler(this.CheckName_CheckedChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 56);
+            this.label6.Location = new System.Drawing.Point(8, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 20);
+            this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Ad";
+            this.label6.Text = "Üzvün adı";
             // 
             // DgvGivenBooksList
             // 
@@ -221,6 +232,7 @@
             this.DgvGivenBooksList.RowTemplate.Height = 24;
             this.DgvGivenBooksList.Size = new System.Drawing.Size(1217, 459);
             this.DgvGivenBooksList.TabIndex = 10;
+            this.DgvGivenBooksList.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvGivenBooksList_RowHeaderMouseDoubleClick);
             // 
             // Column1
             // 
@@ -267,7 +279,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(668, 55);
+            this.label9.Location = new System.Drawing.Point(821, 55);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 20);
             this.label9.TabIndex = 20;
@@ -276,7 +288,7 @@
             // TxtName
             // 
             this.TxtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtName.Location = new System.Drawing.Point(24, 86);
+            this.TxtName.Location = new System.Drawing.Point(6, 84);
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(155, 26);
             this.TxtName.TabIndex = 12;
@@ -284,7 +296,7 @@
             // TxtMemberNumber
             // 
             this.TxtMemberNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMemberNumber.Location = new System.Drawing.Point(671, 85);
+            this.TxtMemberNumber.Location = new System.Drawing.Point(824, 85);
             this.TxtMemberNumber.Name = "TxtMemberNumber";
             this.TxtMemberNumber.Size = new System.Drawing.Size(184, 26);
             this.TxtMemberNumber.TabIndex = 19;
@@ -293,7 +305,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(202, 55);
+            this.label7.Location = new System.Drawing.Point(355, 55);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 20);
             this.label7.TabIndex = 15;
@@ -303,7 +315,7 @@
             // 
             this.DtpReturnTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpReturnTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpReturnTime.Location = new System.Drawing.Point(438, 84);
+            this.DtpReturnTime.Location = new System.Drawing.Point(591, 84);
             this.DtpReturnTime.Name = "DtpReturnTime";
             this.DtpReturnTime.Size = new System.Drawing.Size(200, 26);
             this.DtpReturnTime.TabIndex = 18;
@@ -312,7 +324,7 @@
             // 
             this.DtpGivenTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtpGivenTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpGivenTime.Location = new System.Drawing.Point(206, 84);
+            this.DtpGivenTime.Location = new System.Drawing.Point(359, 84);
             this.DtpGivenTime.Name = "DtpGivenTime";
             this.DtpGivenTime.Size = new System.Drawing.Size(200, 26);
             this.DtpGivenTime.TabIndex = 16;
@@ -322,7 +334,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(434, 55);
+            this.label8.Location = new System.Drawing.Point(587, 55);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(136, 20);
             this.label8.TabIndex = 17;
@@ -330,11 +342,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.LblId);
             this.groupBox2.Controls.Add(this.BtnSearchBook);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.TxtBookName);
             this.groupBox2.Controls.Add(this.richTextBox1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.TxtDelayedDays);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.BtnDeleteReserve);
             this.groupBox2.Controls.Add(this.BtnTakeBook);
@@ -396,13 +409,13 @@
             this.richTextBox1.TabIndex = 20;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // textBox1
+            // TxtDelayedDays
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(10, 450);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 26);
-            this.textBox1.TabIndex = 19;
+            this.TxtDelayedDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDelayedDays.Location = new System.Drawing.Point(10, 450);
+            this.TxtDelayedDays.Name = "TxtDelayedDays";
+            this.TxtDelayedDays.Size = new System.Drawing.Size(216, 26);
+            this.TxtDelayedDays.TabIndex = 19;
             // 
             // label11
             // 
@@ -433,6 +446,7 @@
             this.BtnTakeBook.TabIndex = 16;
             this.BtnTakeBook.Text = "Təhvil al";
             this.BtnTakeBook.UseVisualStyleBackColor = true;
+            this.BtnTakeBook.Click += new System.EventHandler(this.BtnTakeBook_Click);
             // 
             // BtnGetBook
             // 
@@ -548,6 +562,33 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Üzüvlük nömrəsi";
             // 
+            // checkBookName
+            // 
+            this.checkBookName.AutoSize = true;
+            this.checkBookName.Location = new System.Drawing.Point(291, 55);
+            this.checkBookName.Name = "checkBookName";
+            this.checkBookName.Size = new System.Drawing.Size(18, 17);
+            this.checkBookName.TabIndex = 29;
+            this.checkBookName.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(187, 53);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 20);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Kitabın adı";
+            // 
+            // TxtSearchBook
+            // 
+            this.TxtSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearchBook.Location = new System.Drawing.Point(183, 84);
+            this.TxtSearchBook.Name = "TxtSearchBook";
+            this.TxtSearchBook.Size = new System.Drawing.Size(155, 26);
+            this.TxtSearchBook.TabIndex = 27;
+            // 
             // PbReturnBook
             // 
             this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
@@ -557,6 +598,7 @@
             this.PbReturnBook.Size = new System.Drawing.Size(85, 85);
             this.PbReturnBook.TabIndex = 8;
             this.PbReturnBook.TabStop = false;
+            this.PbReturnBook.Click += new System.EventHandler(this.PbReturnBook_Click);
             // 
             // PbAddBook
             // 
@@ -596,7 +638,7 @@
             this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
             this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRefresh.Location = new System.Drawing.Point(1099, 55);
+            this.BtnRefresh.Location = new System.Drawing.Point(1168, 47);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(71, 64);
             this.BtnRefresh.TabIndex = 26;
@@ -608,12 +650,22 @@
             this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
             this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSearch.Location = new System.Drawing.Point(964, 56);
+            this.BtnSearch.Location = new System.Drawing.Point(1033, 48);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(71, 64);
             this.BtnSearch.TabIndex = 21;
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // LblId
+            // 
+            this.LblId.AutoSize = true;
+            this.LblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblId.Location = new System.Drawing.Point(11, 161);
+            this.LblId.Name = "LblId";
+            this.LblId.Size = new System.Drawing.Size(0, 20);
+            this.LblId.TabIndex = 24;
+            this.LblId.Visible = false;
             // 
             // MainMenu
             // 
@@ -685,7 +737,7 @@
         private System.Windows.Forms.TextBox TxtMemberId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtDelayedDays;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button BtnSearchBook;
         private System.Windows.Forms.Label label16;
@@ -703,5 +755,9 @@
         private System.Windows.Forms.CheckBox checkGiven;
         private System.Windows.Forms.CheckBox CheckName;
         private System.Windows.Forms.Button BtnRefresh;
+        private System.Windows.Forms.CheckBox checkBookName;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox TxtSearchBook;
+        private System.Windows.Forms.Label LblId;
     }
 }

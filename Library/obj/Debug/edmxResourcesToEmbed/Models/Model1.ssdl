@@ -39,7 +39,7 @@
     <Property Name="StartTime" Type="date" Nullable="false" />
     <Property Name="EndTime" Type="date" Nullable="false" />
     <Property Name="ReturnTime" Type="date" />
-    <Property Name="FinePrice" Type="int" Nullable="false" />
+    <Property Name="FinePrice" Type="money" Nullable="false" />
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>

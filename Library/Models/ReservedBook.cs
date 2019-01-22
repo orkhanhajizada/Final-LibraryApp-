@@ -20,7 +20,7 @@ namespace Library.Models
         public System.DateTime StartTime { get; set; }
         public System.DateTime EndTime { get; set; }
         public Nullable<System.DateTime> ReturnTime { get; set; }
-        public int FinePrice { get; set; }
+        public decimal FinePrice { get; set; }
         public int StatusId { get; set; }
         public int UserId { get; set; }
     

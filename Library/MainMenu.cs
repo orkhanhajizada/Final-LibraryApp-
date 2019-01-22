@@ -16,7 +16,7 @@ namespace Library
     {
         LibraryEntities db = new LibraryEntities();
         public User sentUser;
-
+        private Models.ReservedBook SelectedReserve;
         public MainMenu(User user)
         {
             sentUser = user;
@@ -50,6 +50,13 @@ namespace Library
             BooksMenu.ShowDialog();
         }
 
+        //Qaytarilan kitablar menusunu achmaq
+        private void PbReturnBook_Click(object sender, EventArgs e)
+        {
+            ReturnBookMenu returnMenu = new ReturnBookMenu(sentUser);
+
+            returnMenu.ShowDialog();
+        }
 
         //Uzv nomresine gore uzvun ad soyadinin tapmag
         private void BtnSearchMember_Click(object sender, EventArgs e)
@@ -83,7 +90,6 @@ namespace Library
 
 
         }
-
 
         //Kitablarin ada gore axtarilmasi 
         private void BtnSearchBook_Click(object sender, EventArgs e)
@@ -123,13 +129,10 @@ namespace Library
             }
         }
 
-
         //Tehvil verilen kitablarin Dgv`ya doldurulmasi
         private void FillGivenBooks()
         {
             DgvGivenBooksList.Rows.Clear();
-
-            
 
             foreach (Models.ReservedBook table in db.ReservedBooks.ToList())
             {
@@ -143,12 +146,12 @@ namespace Library
         }
 
         //Uzuvlere kitabi tehvil vermek
-
         private void BtnGetBook_Click(object sender, EventArgs e)
         {
             int memId = Convert.ToInt32(TxtMemberFullName.Text.ToString().Split('-')[0]);
             int bookId = Convert.ToInt32(CmbBookList.SelectedItem.ToString().Split('-')[0]);
             int statusId = Convert.ToInt32(CmbBookStatus.SelectedItem.ToString().Split('-')[0]);
+            int bookCount = db.ReservedBooks.Where(b => bookId == b.BookList.Id && b.ReturnTime == null).ToList().Count();
 
             //Qaytarilmamish kitabin sayinin 3den boyuk olub olmadigini yoxlamaq
             var result = db.ReservedBooks.Where(b => memId == b.MemberId && b.ReturnTime == null).ToList().Count();
@@ -161,33 +164,46 @@ namespace Library
                     return;
                 }
 
-                //databasee elave etmek
-                Models.ReservedBook res = new Models.ReservedBook
+                //Kitabin hazirda olub olmamagini yoxlamaq
+                if(db.BookLists.Find(bookId).Count - bookCount <= 0)
                 {
-                    MemberId = memId,
-                    BooksId = bookId,
-                    StatusId = statusId,
-                    UserId = sentUser.Id,
-                    StartTime = DateTime.Now,
-                    EndTime = DateTime.Now.AddMonths(1)
-                };
-                db.ReservedBooks.Add(res);
-                db.SaveChanges();
+                    MessageBox.Show("Bu kitab hal-hazırda bitmişdir!");
+                    return;
+                }
 
-                FillGivenBooks();
-            }
-            else
-            {
-                MessageBox.Show("Seçilən üzv artıq 3 kitab götürmüşdür!");
-            }
+
+
+                //database`e elave etmek
+                Models.ReservedBook res = new Models.ReservedBook
+                    {
+                        MemberId = memId,
+                        BooksId = bookId,
+                        StatusId = statusId,
+                        UserId = sentUser.Id,
+                        StartTime = DateTime.Now,
+                        EndTime = DateTime.Now.AddMonths(1),
+
+                    };
+
+                    db.ReservedBooks.Add(res);
+                    db.SaveChanges();
+
+                    FillGivenBooks();
+                }
+                else
+                {
+                    MessageBox.Show("Seçilən üzv artıq 3 kitab götürmüşdür!");
+                }
         }
+
 
         //Axtarish etmek
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            //Ada gore axtarmaq
-            if(CheckName.Checked == true)
+         //Ada gore axtarmaq
+         if (CheckName.Checked == true)
             {
+                
                 DgvGivenBooksList.Rows.Clear();
 
                 var members = db.ReservedBooks.Where(m => m.Member.MemberName.Contains(TxtName.Text));
@@ -205,13 +221,40 @@ namespace Library
                     {
                         MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
                     }
-                    
                 }
                 else
                 {
                     MessageBox.Show("Axtardığınız üzvün adını yazın!");
                 }
-               
+            }
+
+            if (checkBookName.Checked == true)
+            {
+
+                DgvGivenBooksList.Rows.Clear();
+
+                var members = db.ReservedBooks.Where(m => m.BookList.Name.Contains(TxtSearchBook.Text));
+
+                if (!string.IsNullOrEmpty(TxtSearchBook.Text))
+                {
+                    if (members != null)
+                    {
+                        foreach (var search in members)
+                        {
+                            DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.User.UserName);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Axtardığınız üzvün adını yazın!");
+                }
+
+
             }
 
             //Verilme tarixine gore axtarmaq
@@ -233,8 +276,8 @@ namespace Library
                 }
             }
 
-            //Qaytarilma tarixine gore axtarmaq
-            if (checkReturn.Checked == true)
+         //Qaytarilma tarixine gore axtarmaq
+         if (checkReturn.Checked == true)
             {
                 DgvGivenBooksList.Rows.Clear();
 
@@ -252,8 +295,8 @@ namespace Library
                 }
             }
 
-            //Uzv nomresine gore axtarmaq
-            if (checkId.Checked == true)
+         //Uzv nomresine gore axtarmaq
+         if (checkId.Checked == true)
             {
                 DgvGivenBooksList.Rows.Clear();
 
@@ -261,7 +304,7 @@ namespace Library
 
                 if (!string.IsNullOrEmpty(TxtMemberNumber.Text))
                 {
-                   if(memberNumber != null)
+                    if (memberNumber != null)
                     {
                         foreach (var numbers in memberNumber)
                         {
@@ -279,6 +322,48 @@ namespace Library
                 }
             }
         }
+        //Axtarışı yalnız 1 inputa görə axtarmaq
+        #region
+        private void CheckName_CheckedChanged(object sender, EventArgs e)
+        {
+            checkGiven.Checked = false;
+            checkReturn.Checked = false;
+            checkId.Checked = false;
+            checkBookName.Checked = false;
+        }
+
+        private void checkBookName_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckName.Checked = false;
+            checkGiven.Checked = false;
+            checkReturn.Checked = false;
+            checkId.Checked = false;
+        }
+
+        private void checkGiven_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckName.Checked = false;
+            checkReturn.Checked = false;
+            checkId.Checked = false;
+            checkBookName.Checked = false;
+        }
+
+        private void checkReturn_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckName.Checked = false;
+            checkGiven.Checked = false;
+            checkId.Checked = false;
+            checkBookName.Checked = false;
+        }
+
+        private void checkId_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckName.Checked = false;
+            checkGiven.Checked = false;
+            checkReturn.Checked = false;
+            checkBookName.Checked = false;
+        }
+        #endregion
 
         //Axtarishi refresh etmek
         private void BtnRefresh_Click(object sender, EventArgs e)
@@ -291,6 +376,44 @@ namespace Library
             checkGiven.Checked = false;
             checkId.Checked = false;
             FillGivenBooks();
+        }
+
+        //Kitabi tehvil vermek
+        private void DgvGivenBooksList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = Convert.ToInt32(DgvGivenBooksList.Rows[e.RowIndex].Cells[0].Value.ToString());
+            SelectedReserve = db.ReservedBooks.Find(id);
+
+            TxtMemberFullName.Text = SelectedReserve.Member.Id+ "-" +SelectedReserve.Member.MemberName;
+            TxtMemberId.Text = SelectedReserve.Member.MemberNumber;
+            CmbBookList.Text = SelectedReserve.BookList.Id+ "-" +SelectedReserve.BookList.Name;
+            CmbBookStatus.Text = SelectedReserve.BookStatu.Id + "-" + SelectedReserve.BookStatu.Status;
+            DateTime td = DateTime.Now.Date;
+            DateTime dt = SelectedReserve.EndTime.Date;
+            int a = (td - dt).Days;
+            TxtDelayedDays.Text = a.ToString();
+            LblId.Text = id.ToString();
+            
+        }
+
+
+
+        //Kitabi tehvil almaq
+        private void BtnTakeBook_Click(object sender, EventArgs e)
+        {
+            int ReservedId = Convert.ToInt32(LblId.Text);
+            int statusId = Convert.ToInt32(CmbBookStatus.SelectedItem.ToString().Split('-')[0]);
+            SelectedReserve = db.ReservedBooks.Find(ReservedId);
+
+            SelectedReserve.ReturnTime = DateTime.Now;
+            SelectedReserve.FinePrice = NumFinePrice.Value;
+            SelectedReserve.StatusId = statusId;
+        
+            db.SaveChanges();
+
+            MessageBox.Show("Kitab təhvil alındı");
+            FillGivenBooks();
+
         }
     };
 }
