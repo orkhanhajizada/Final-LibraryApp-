@@ -1,45 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
-    <EntitySetMapping Name="BookLists">
-      <EntityTypeMapping TypeName="LibraryModel.BookList">
-        <MappingFragment StoreEntitySet="BookList">
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BookStatus">
       <EntityTypeMapping TypeName="LibraryModel.BookStatu">
         <MappingFragment StoreEntitySet="BookStatus">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="LibraryModel.User">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Members">
-      <EntityTypeMapping TypeName="LibraryModel.Member">
-        <MappingFragment StoreEntitySet="Members">
-          <ScalarProperty Name="BookCount" ColumnName="BookCount" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -54,6 +20,43 @@
           <ScalarProperty Name="StartTime" ColumnName="StartTime" />
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
           <ScalarProperty Name="BooksId" ColumnName="BooksId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LibraryModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="LibraryModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberStatus" ColumnName="MemberStatus" />
+          <ScalarProperty Name="BookCount" ColumnName="BookCount" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="MemberNumber" ColumnName="MemberNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookLists">
+      <EntityTypeMapping TypeName="LibraryModel.BookList">
+        <MappingFragment StoreEntitySet="BookList">
+          <ScalarProperty Name="BookDelete" ColumnName="BookDelete" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

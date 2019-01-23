@@ -25,10 +25,10 @@ namespace Library.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BookList> BookLists { get; set; }
         public virtual DbSet<BookStatu> BookStatus { get; set; }
+        public virtual DbSet<ReservedBook> ReservedBooks { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Member> Members { get; set; }
-        public virtual DbSet<ReservedBook> ReservedBooks { get; set; }
+        public virtual DbSet<BookList> BookLists { get; set; }
     }
 }

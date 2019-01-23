@@ -34,11 +34,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBookName = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxtSearchBook = new System.Windows.Forms.TextBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.checkId = new System.Windows.Forms.CheckBox();
             this.checkReturn = new System.Windows.Forms.CheckBox();
             this.checkGiven = new System.Windows.Forms.CheckBox();
             this.CheckName = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.BtnSearch = new System.Windows.Forms.Button();
             this.DgvGivenBooksList = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,16 +61,17 @@
             this.DtpGivenTime = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblId = new System.Windows.Forms.Label();
             this.BtnSearchBook = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.TxtBookName = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.TxtDelayedDays = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.LblDayCount = new System.Windows.Forms.Label();
             this.BtnDeleteReserve = new System.Windows.Forms.Button();
             this.BtnTakeBook = new System.Windows.Forms.Button();
             this.BtnGetBook = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
+            this.LblFinePrice = new System.Windows.Forms.Label();
             this.NumFinePrice = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.CmbBookStatus = new System.Windows.Forms.ComboBox();
@@ -76,16 +82,10 @@
             this.BtnSearchMember = new System.Windows.Forms.Button();
             this.TxtMemberId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBookName = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.TxtSearchBook = new System.Windows.Forms.TextBox();
             this.PbReturnBook = new System.Windows.Forms.PictureBox();
             this.PbAddBook = new System.Windows.Forms.PictureBox();
             this.PbAddMember = new System.Windows.Forms.PictureBox();
             this.PbAddUser = new System.Windows.Forms.PictureBox();
-            this.BtnRefresh = new System.Windows.Forms.Button();
-            this.BtnSearch = new System.Windows.Forms.Button();
-            this.LblId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -164,6 +164,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Verilmiş Kitablar";
             // 
+            // checkBookName
+            // 
+            this.checkBookName.AutoSize = true;
+            this.checkBookName.Location = new System.Drawing.Point(291, 55);
+            this.checkBookName.Name = "checkBookName";
+            this.checkBookName.Size = new System.Drawing.Size(18, 17);
+            this.checkBookName.TabIndex = 29;
+            this.checkBookName.UseVisualStyleBackColor = true;
+            this.checkBookName.CheckedChanged += new System.EventHandler(this.checkBookName_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(187, 53);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 20);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Kitabın adı";
+            // 
+            // TxtSearchBook
+            // 
+            this.TxtSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearchBook.Location = new System.Drawing.Point(183, 84);
+            this.TxtSearchBook.Name = "TxtSearchBook";
+            this.TxtSearchBook.Size = new System.Drawing.Size(155, 26);
+            this.TxtSearchBook.TabIndex = 27;
+            // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
+            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRefresh.Location = new System.Drawing.Point(1168, 47);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(71, 64);
+            this.BtnRefresh.TabIndex = 26;
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // checkId
             // 
             this.checkId.AutoSize = true;
@@ -214,6 +254,18 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Üzvün adı";
             // 
+            // BtnSearch
+            // 
+            this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
+            this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSearch.Location = new System.Drawing.Point(1033, 48);
+            this.BtnSearch.Name = "BtnSearch";
+            this.BtnSearch.Size = new System.Drawing.Size(71, 64);
+            this.BtnSearch.TabIndex = 21;
+            this.BtnSearch.UseVisualStyleBackColor = true;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
             // DgvGivenBooksList
             // 
             this.DgvGivenBooksList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -229,6 +281,7 @@
             this.Column8});
             this.DgvGivenBooksList.Location = new System.Drawing.Point(24, 158);
             this.DgvGivenBooksList.Name = "DgvGivenBooksList";
+            this.DgvGivenBooksList.ReadOnly = true;
             this.DgvGivenBooksList.RowTemplate.Height = 24;
             this.DgvGivenBooksList.Size = new System.Drawing.Size(1217, 459);
             this.DgvGivenBooksList.TabIndex = 10;
@@ -348,11 +401,11 @@
             this.groupBox2.Controls.Add(this.TxtBookName);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Controls.Add(this.TxtDelayedDays);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.LblDayCount);
             this.groupBox2.Controls.Add(this.BtnDeleteReserve);
             this.groupBox2.Controls.Add(this.BtnTakeBook);
             this.groupBox2.Controls.Add(this.BtnGetBook);
-            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.LblFinePrice);
             this.groupBox2.Controls.Add(this.NumFinePrice);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.CmbBookStatus);
@@ -370,6 +423,16 @@
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kitabların təhvil-təslimi";
+            // 
+            // LblId
+            // 
+            this.LblId.AutoSize = true;
+            this.LblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblId.Location = new System.Drawing.Point(11, 161);
+            this.LblId.Name = "LblId";
+            this.LblId.Size = new System.Drawing.Size(0, 20);
+            this.LblId.TabIndex = 24;
+            this.LblId.Visible = false;
             // 
             // BtnSearchBook
             // 
@@ -416,16 +479,18 @@
             this.TxtDelayedDays.Name = "TxtDelayedDays";
             this.TxtDelayedDays.Size = new System.Drawing.Size(216, 26);
             this.TxtDelayedDays.TabIndex = 19;
+            this.TxtDelayedDays.Visible = false;
             // 
-            // label11
+            // LblDayCount
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(7, 417);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 20);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Gecikən gün sayı";
+            this.LblDayCount.AutoSize = true;
+            this.LblDayCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDayCount.Location = new System.Drawing.Point(7, 417);
+            this.LblDayCount.Name = "LblDayCount";
+            this.LblDayCount.Size = new System.Drawing.Size(137, 20);
+            this.LblDayCount.TabIndex = 18;
+            this.LblDayCount.Text = "Gecikən gün sayı";
+            this.LblDayCount.Visible = false;
             // 
             // BtnDeleteReserve
             // 
@@ -436,6 +501,7 @@
             this.BtnDeleteReserve.TabIndex = 17;
             this.BtnDeleteReserve.Text = "Sil";
             this.BtnDeleteReserve.UseVisualStyleBackColor = true;
+            this.BtnDeleteReserve.Visible = false;
             // 
             // BtnTakeBook
             // 
@@ -446,6 +512,7 @@
             this.BtnTakeBook.TabIndex = 16;
             this.BtnTakeBook.Text = "Təhvil al";
             this.BtnTakeBook.UseVisualStyleBackColor = true;
+            this.BtnTakeBook.Visible = false;
             this.BtnTakeBook.Click += new System.EventHandler(this.BtnTakeBook_Click);
             // 
             // BtnGetBook
@@ -459,15 +526,16 @@
             this.BtnGetBook.UseVisualStyleBackColor = true;
             this.BtnGetBook.Click += new System.EventHandler(this.BtnGetBook_Click);
             // 
-            // label15
+            // LblFinePrice
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(323, 418);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(126, 20);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "Cərimə məbləği";
+            this.LblFinePrice.AutoSize = true;
+            this.LblFinePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFinePrice.Location = new System.Drawing.Point(323, 418);
+            this.LblFinePrice.Name = "LblFinePrice";
+            this.LblFinePrice.Size = new System.Drawing.Size(126, 20);
+            this.LblFinePrice.TabIndex = 14;
+            this.LblFinePrice.Text = "Cərimə məbləği";
+            this.LblFinePrice.Visible = false;
             // 
             // NumFinePrice
             // 
@@ -476,6 +544,7 @@
             this.NumFinePrice.Name = "NumFinePrice";
             this.NumFinePrice.Size = new System.Drawing.Size(216, 26);
             this.NumFinePrice.TabIndex = 13;
+            this.NumFinePrice.Visible = false;
             // 
             // label14
             // 
@@ -509,7 +578,6 @@
             // CmbBookList
             // 
             this.CmbBookList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbBookList.FormattingEnabled = true;
             this.CmbBookList.Location = new System.Drawing.Point(324, 283);
             this.CmbBookList.Name = "CmbBookList";
             this.CmbBookList.Size = new System.Drawing.Size(216, 28);
@@ -562,33 +630,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Üzüvlük nömrəsi";
             // 
-            // checkBookName
-            // 
-            this.checkBookName.AutoSize = true;
-            this.checkBookName.Location = new System.Drawing.Point(291, 55);
-            this.checkBookName.Name = "checkBookName";
-            this.checkBookName.Size = new System.Drawing.Size(18, 17);
-            this.checkBookName.TabIndex = 29;
-            this.checkBookName.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(187, 53);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 20);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Kitabın adı";
-            // 
-            // TxtSearchBook
-            // 
-            this.TxtSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSearchBook.Location = new System.Drawing.Point(183, 84);
-            this.TxtSearchBook.Name = "TxtSearchBook";
-            this.TxtSearchBook.Size = new System.Drawing.Size(155, 26);
-            this.TxtSearchBook.TabIndex = 27;
-            // 
             // PbReturnBook
             // 
             this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
@@ -626,46 +667,13 @@
             // 
             this.PbAddUser.BackgroundImage = global::Library.Properties.Resources.adduser;
             this.PbAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbAddUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbAddUser.Location = new System.Drawing.Point(42, 23);
             this.PbAddUser.Name = "PbAddUser";
             this.PbAddUser.Size = new System.Drawing.Size(85, 85);
             this.PbAddUser.TabIndex = 0;
             this.PbAddUser.TabStop = false;
             this.PbAddUser.Click += new System.EventHandler(this.PbAddUser_Click);
-            // 
-            // BtnRefresh
-            // 
-            this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
-            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRefresh.Location = new System.Drawing.Point(1168, 47);
-            this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(71, 64);
-            this.BtnRefresh.TabIndex = 26;
-            this.BtnRefresh.UseVisualStyleBackColor = true;
-            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
-            // 
-            // BtnSearch
-            // 
-            this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
-            this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSearch.Location = new System.Drawing.Point(1033, 48);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(71, 64);
-            this.BtnSearch.TabIndex = 21;
-            this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-            // 
-            // LblId
-            // 
-            this.LblId.AutoSize = true;
-            this.LblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblId.Location = new System.Drawing.Point(11, 161);
-            this.LblId.Name = "LblId";
-            this.LblId.Size = new System.Drawing.Size(0, 20);
-            this.LblId.TabIndex = 24;
-            this.LblId.Visible = false;
             // 
             // MainMenu
             // 
@@ -685,6 +693,7 @@
             this.Name = "MainMenu";
             this.Text = "Kitabxana";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Click += new System.EventHandler(this.MainMenu_Click);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).EndInit();
@@ -725,7 +734,7 @@
         private System.Windows.Forms.Button BtnDeleteReserve;
         private System.Windows.Forms.Button BtnTakeBook;
         private System.Windows.Forms.Button BtnGetBook;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label LblFinePrice;
         private System.Windows.Forms.NumericUpDown NumFinePrice;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox CmbBookStatus;
@@ -738,7 +747,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox TxtDelayedDays;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LblDayCount;
         private System.Windows.Forms.Button BtnSearchBook;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox TxtBookName;

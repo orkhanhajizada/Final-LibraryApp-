@@ -43,13 +43,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BtnRefresh = new System.Windows.Forms.Button();
-            this.BtnSearch = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtSearchBook = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
+            this.BtnSearch = new System.Windows.Forms.Button();
+            this.BtnDeletedBooks = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookList)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumCount)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -203,14 +206,45 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Kitabın adı";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(16, 32);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 20);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Kitabın adı";
+            // 
+            // TxtSearchBook
+            // 
+            this.TxtSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearchBook.Location = new System.Drawing.Point(18, 62);
+            this.TxtSearchBook.Name = "TxtSearchBook";
+            this.TxtSearchBook.Size = new System.Drawing.Size(155, 26);
+            this.TxtSearchBook.TabIndex = 31;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.TxtSearchBook);
+            this.groupBox2.Controls.Add(this.BtnRefresh);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.BtnSearch);
+            this.groupBox2.Location = new System.Drawing.Point(783, 423);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(270, 178);
+            this.groupBox2.TabIndex = 39;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Axtarış";
+            // 
             // BtnRefresh
             // 
             this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
             this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRefresh.Location = new System.Drawing.Point(919, 537);
+            this.BtnRefresh.Location = new System.Drawing.Point(92, 104);
             this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(71, 64);
+            this.BtnRefresh.Size = new System.Drawing.Size(51, 51);
             this.BtnRefresh.TabIndex = 38;
             this.BtnRefresh.UseVisualStyleBackColor = true;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
@@ -220,49 +254,43 @@
             this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
             this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSearch.Location = new System.Drawing.Point(784, 538);
+            this.BtnSearch.Location = new System.Drawing.Point(20, 103);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(71, 64);
+            this.BtnSearch.Size = new System.Drawing.Size(51, 52);
             this.BtnSearch.TabIndex = 37;
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
-            // label6
+            // BtnDeletedBooks
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(780, 439);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 20);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Kitabın adı";
-            // 
-            // TxtSearchBook
-            // 
-            this.TxtSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSearchBook.Location = new System.Drawing.Point(783, 469);
-            this.TxtSearchBook.Name = "TxtSearchBook";
-            this.TxtSearchBook.Size = new System.Drawing.Size(155, 26);
-            this.TxtSearchBook.TabIndex = 31;
+            this.BtnDeletedBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeletedBooks.Location = new System.Drawing.Point(783, 628);
+            this.BtnDeletedBooks.Name = "BtnDeletedBooks";
+            this.BtnDeletedBooks.Size = new System.Drawing.Size(226, 44);
+            this.BtnDeletedBooks.TabIndex = 40;
+            this.BtnDeletedBooks.Text = "Silinən kitablar";
+            this.BtnDeletedBooks.UseVisualStyleBackColor = true;
+            this.BtnDeletedBooks.Click += new System.EventHandler(this.BtnDeletedBooks_Click);
             // 
             // AddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1158, 731);
-            this.Controls.Add(this.BtnRefresh);
-            this.Controls.Add(this.BtnSearch);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.TxtSearchBook);
+            this.Controls.Add(this.BtnDeletedBooks);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvBookList);
             this.Controls.Add(this.label1);
             this.Name = "AddBooks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kitablar";
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumCount)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,7 +299,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView DgvBookList;
+        public System.Windows.Forms.DataGridView DgvBookList;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnDeleteBook;
         private System.Windows.Forms.Button BtnUpdateBook;
@@ -289,5 +317,7 @@
         private System.Windows.Forms.Button BtnSearch;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtSearchBook;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button BtnDeletedBooks;
     }
 }

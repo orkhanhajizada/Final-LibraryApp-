@@ -50,10 +50,13 @@
             this.checkId = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtMemberNumber = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
+            this.BtnDeleted = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMembers)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -202,17 +205,18 @@
             // CheckName
             // 
             this.CheckName.AutoSize = true;
-            this.CheckName.Location = new System.Drawing.Point(882, 406);
+            this.CheckName.Location = new System.Drawing.Point(49, 47);
             this.CheckName.Name = "CheckName";
             this.CheckName.Size = new System.Drawing.Size(18, 17);
             this.CheckName.TabIndex = 25;
             this.CheckName.UseVisualStyleBackColor = true;
+            this.CheckName.CheckedChanged += new System.EventHandler(this.CheckName_CheckedChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(836, 404);
+            this.label6.Location = new System.Drawing.Point(3, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 20);
             this.label6.TabIndex = 24;
@@ -221,25 +225,26 @@
             // TxtSerachName
             // 
             this.TxtSerachName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSerachName.Location = new System.Drawing.Point(839, 434);
+            this.TxtSerachName.Location = new System.Drawing.Point(6, 75);
             this.TxtSerachName.Name = "TxtSerachName";
-            this.TxtSerachName.Size = new System.Drawing.Size(155, 26);
+            this.TxtSerachName.Size = new System.Drawing.Size(162, 26);
             this.TxtSerachName.TabIndex = 23;
             // 
             // checkId
             // 
             this.checkId.AutoSize = true;
-            this.checkId.Location = new System.Drawing.Point(997, 490);
+            this.checkId.Location = new System.Drawing.Point(150, 131);
             this.checkId.Name = "checkId";
             this.checkId.Size = new System.Drawing.Size(18, 17);
             this.checkId.TabIndex = 28;
             this.checkId.UseVisualStyleBackColor = true;
+            this.checkId.CheckedChanged += new System.EventHandler(this.checkId_CheckedChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(837, 487);
+            this.label9.Location = new System.Drawing.Point(4, 128);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 20);
             this.label9.TabIndex = 27;
@@ -248,19 +253,36 @@
             // TxtMemberNumber
             // 
             this.TxtMemberNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtMemberNumber.Location = new System.Drawing.Point(840, 517);
+            this.TxtMemberNumber.Location = new System.Drawing.Point(7, 158);
             this.TxtMemberNumber.Name = "TxtMemberNumber";
-            this.TxtMemberNumber.Size = new System.Drawing.Size(184, 26);
+            this.TxtMemberNumber.Size = new System.Drawing.Size(161, 26);
             this.TxtMemberNumber.TabIndex = 26;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.TxtSerachName);
+            this.groupBox2.Controls.Add(this.BtnRefresh);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.BtnSearch);
+            this.groupBox2.Controls.Add(this.CheckName);
+            this.groupBox2.Controls.Add(this.checkId);
+            this.groupBox2.Controls.Add(this.TxtMemberNumber);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Location = new System.Drawing.Point(839, 410);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(314, 208);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Axtar";
             // 
             // BtnRefresh
             // 
             this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
             this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRefresh.Location = new System.Drawing.Point(974, 573);
+            this.BtnRefresh.Location = new System.Drawing.Point(227, 138);
             this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(71, 64);
+            this.BtnRefresh.Size = new System.Drawing.Size(60, 46);
             this.BtnRefresh.TabIndex = 30;
             this.BtnRefresh.UseVisualStyleBackColor = true;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
@@ -270,34 +292,42 @@
             this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
             this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSearch.Location = new System.Drawing.Point(839, 574);
+            this.BtnSearch.Location = new System.Drawing.Point(227, 55);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(71, 64);
+            this.BtnSearch.Size = new System.Drawing.Size(60, 46);
             this.BtnSearch.TabIndex = 29;
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // BtnDeleted
+            // 
+            this.BtnDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeleted.Location = new System.Drawing.Point(839, 658);
+            this.BtnDeleted.Name = "BtnDeleted";
+            this.BtnDeleted.Size = new System.Drawing.Size(168, 47);
+            this.BtnDeleted.TabIndex = 32;
+            this.BtnDeleted.Text = "Silinən üzüvlər";
+            this.BtnDeleted.UseVisualStyleBackColor = true;
+            this.BtnDeleted.Click += new System.EventHandler(this.BtnDeleted_Click);
             // 
             // MemberProfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 727);
-            this.Controls.Add(this.BtnRefresh);
-            this.Controls.Add(this.BtnSearch);
-            this.Controls.Add(this.checkId);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.TxtMemberNumber);
-            this.Controls.Add(this.CheckName);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.TxtSerachName);
+            this.Controls.Add(this.BtnDeleted);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DgvMembers);
             this.Name = "MemberProfiles";
-            this.Text = "MemberMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Kitabxana üzüvləri";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMembers)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +344,7 @@
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView DgvMembers;
+        public System.Windows.Forms.DataGridView DgvMembers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -329,5 +359,7 @@
         private System.Windows.Forms.TextBox TxtMemberNumber;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Button BtnSearch;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button BtnDeleted;
     }
 }

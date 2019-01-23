@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.Models;
@@ -23,14 +24,33 @@ namespace Library
             FillUsers();
         }
 
+
+        //Email`in yazilishini yoxlamaq uchun metod
+        public static bool isEmail(string inputEmail)
+        {
+            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex re = new Regex(strRegex);
+            if (re.IsMatch(inputEmail))
+                return (true);
+            else
+                return (false);
+        }
+
         //Userlerin doldurulmasi
         private void FillUsers()
         {
             DgvWorkers.Rows.Clear();
 
+            
             foreach (Models.User table in db.Users.ToList())
             {
-                DgvWorkers.Rows.Add(table.Id, table.UserName,table.Email,table.Password);
+                if(table.UserStatus == true)
+                {
+                    DgvWorkers.Rows.Add(table.Id, table.UserName, table.Email, table.Password);
+                }
+                
             }
         }
 
@@ -50,16 +70,25 @@ namespace Library
                 return;
             }
 
-            Models.User worker = new Models.User
+            //Email`i yoxlamaq
+            if (isEmail(TxtEmail.Text))
             {
-                UserName = TxtName.Text,
-                Email = TxtEmail.Text,
-                Password = Extensions.hasher(TxtPassword.Text)
+                Models.User worker = new Models.User
+                {
 
-            };
-            db.Users.Add(worker);
-            db.SaveChanges();
-            
+                    UserName = TxtName.Text,
+                    Email = TxtEmail.Text,
+                    Password = Extensions.hasher(TxtPassword.Text),
+                    UserStatus = true
+
+                };
+                db.Users.Add(worker);
+                db.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("E-poçt ünvanınız düzgün deyil!");
+            }
 
             FillUsers();
             Reset();
@@ -123,7 +152,7 @@ namespace Library
             DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
-                db.Users.Remove(SelectedUser);
+                SelectedUser.UserStatus = false;
 
                 db.SaveChanges();
 

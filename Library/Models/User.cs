@@ -17,21 +17,22 @@ namespace Library.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.BookLists = new HashSet<BookList>();
-            this.Members = new HashSet<Member>();
             this.ReservedBooks = new HashSet<ReservedBook>();
+            this.Members = new HashSet<Member>();
+            this.BookLists = new HashSet<BookList>();
         }
     
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public bool UserStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookList> BookLists { get; set; }
+        public virtual ICollection<ReservedBook> ReservedBooks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Member> Members { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReservedBook> ReservedBooks { get; set; }
+        public virtual ICollection<BookList> BookLists { get; set; }
     }
 }

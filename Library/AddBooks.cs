@@ -34,17 +34,18 @@ namespace Library
 
             foreach (Models.BookList table in db.BookLists.ToList())
             {
-                DgvBookList.Rows.Add(table.Id, table.Name, table.Count, table.CreateTime.ToString("dd/MM/yyyy"), table.User.UserName);
+               if(table.BookDelete == true)
+                {
+                    DgvBookList.Rows.Add(table.Id, table.Name, table.Count, table.CreateTime.ToString("dd/MM/yyyy"), table.User.UserName);
+
+                }
             }
         }
 
-
         //Kitab elave etmek
-
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
             //Inputlarin yoxlanilmasi
-
             if ((string.IsNullOrEmpty(TxtName.Text)))
             {
                 MessageBox.Show("Boşluqları doldurun!");
@@ -62,12 +63,13 @@ namespace Library
                 Name = TxtName.Text,
                 Count = Convert.ToInt32(NumCount.Value),
                 CreateTime = DateTime.Now,
-                UserId = SentUser.Id
+                UserId = SentUser.Id,
+                BookDelete = true
+                
                 
             };
             db.BookLists.Add(ListBook);
             db.SaveChanges();
-
 
             FillBooks();
             Reset();
@@ -77,8 +79,7 @@ namespace Library
         private void Reset()
         {
             TxtName.Clear();
-
-
+            NumCount.Value = 1;
             FillBooks();
 
             BtnDeleteBook.Visible = false;
@@ -87,7 +88,6 @@ namespace Library
         }
 
         //Datagridview`dan kitab sechmek
-
         private void DgvBookList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int id = Convert.ToInt32(DgvBookList.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -126,14 +126,13 @@ namespace Library
             DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
-                db.BookLists.Remove(SelectedBook);
+                SelectedBook.BookDelete = false;
 
                 db.SaveChanges();
 
                 Reset();
             }
         }
-
 
         //Kitab axtarmaq
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -148,25 +147,37 @@ namespace Library
                 {
                     foreach (var search in book)
                     {
-                        DgvBookList.Rows.Add(search.Id, search.Name, search.Count, search.CreateTime.ToString("dd/MM/yyyy"), search.User.UserName);
+                        if (search.BookDelete == true)
+                        {
+                            DgvBookList.Rows.Add(search.Id, search.Name, search.Count, search.CreateTime.ToString("dd/MM/yyyy"), search.User.UserName);
+
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show("Axtarışınıza uyğun nəticə tapılmadı!");
                 }
-
             }
             else
             {
                 MessageBox.Show("Axtardığınız üzvün adını yazın!");
             }
         }
+
         //Axtarishi reflesh etmek
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             TxtSearchBook.Clear();
             FillBooks();
+        }
+
+        //Silinen kitablar menusunu achmaq
+        private void BtnDeletedBooks_Click(object sender, EventArgs e)
+        {
+            DeletedBookList DeletedBooks = new DeletedBookList(SentUser);
+
+            DeletedBooks.ShowDialog();
         }
     }
 }

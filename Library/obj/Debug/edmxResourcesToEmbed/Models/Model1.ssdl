@@ -9,6 +9,7 @@
     <Property Name="Count" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="BookDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="BookStatus">
     <Key>
@@ -28,6 +29,7 @@
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="BookCount" Type="int" Nullable="false" />
+    <Property Name="MemberStatus" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ReservedBooks">
     <Key>
@@ -51,6 +53,7 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserStatus" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK_BookList_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />

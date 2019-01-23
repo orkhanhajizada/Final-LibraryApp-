@@ -23,11 +23,10 @@ namespace Library
         }
 
 
-    
+        //Login etmek
         private void BtnEnter_Click(object sender, EventArgs e)
         {
             //Inputlarin  bosh olmasini yoxlamaq
-
             if ((string.IsNullOrEmpty(TxtEmail.Text)) || (string.IsNullOrEmpty(TxtPassword.Text)))
             {
                 MessageBox.Show("Boşluq buraxmayın");
@@ -47,24 +46,26 @@ namespace Library
                 TxtPassword.Clear();
             }
 
-            //eger bu emailde istifadechi varsa
+            //if(user.UserStatus == false)
+            //{
+            //    MessageBox.Show("Bu adda istifadəçi artıq silinmişdir!");
+            //    TxtEmail.Clear();
+            //    TxtPassword.Clear();
+            //}
 
+            //eger bu emailde istifadechi varsa
             else
             {
                 //Shifre ve Email duzdur
-
                 if(Extensions.hasher(TxtPassword.Text) == user.Password)
                 {
                     MainMenu mainMenu = new MainMenu(user);
-
                     this.Hide();
                     mainMenu.ShowDialog();
                     this.Close();
-
                 }
 
                 //Shifre yanlisdir
-
                 else
                 {
                     MessageBox.Show("E-poçt və ya şifrə yanlışdır");

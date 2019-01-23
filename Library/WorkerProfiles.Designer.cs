@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.DgvWorkers = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnDeleteWorker = new System.Windows.Forms.Button();
@@ -40,10 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvWorkers)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +60,30 @@
             this.DgvWorkers.Location = new System.Drawing.Point(13, 55);
             this.DgvWorkers.Name = "DgvWorkers";
             this.DgvWorkers.RowTemplate.Height = 24;
-            this.DgvWorkers.Size = new System.Drawing.Size(464, 328);
+            this.DgvWorkers.Size = new System.Drawing.Size(668, 383);
             this.DgvWorkers.TabIndex = 0;
             this.DgvWorkers.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvWorkers_RowHeaderMouseDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Ad,Soyad";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "E-poçt";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Şifrə";
+            this.Column4.Name = "Column4";
             // 
             // label1
             // 
@@ -85,7 +106,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TxtName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(509, 55);
+            this.groupBox1.Location = new System.Drawing.Point(722, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(270, 383);
             this.groupBox1.TabIndex = 2;
@@ -94,7 +115,7 @@
             // 
             // BtnDeleteWorker
             // 
-            this.BtnDeleteWorker.Location = new System.Drawing.Point(137, 298);
+            this.BtnDeleteWorker.Location = new System.Drawing.Point(137, 304);
             this.BtnDeleteWorker.Name = "BtnDeleteWorker";
             this.BtnDeleteWorker.Size = new System.Drawing.Size(89, 42);
             this.BtnDeleteWorker.TabIndex = 8;
@@ -105,7 +126,7 @@
             // 
             // BtnUpdateWorker
             // 
-            this.BtnUpdateWorker.Location = new System.Drawing.Point(42, 298);
+            this.BtnUpdateWorker.Location = new System.Drawing.Point(42, 304);
             this.BtnUpdateWorker.Name = "BtnUpdateWorker";
             this.BtnUpdateWorker.Size = new System.Drawing.Size(89, 42);
             this.BtnUpdateWorker.TabIndex = 7;
@@ -116,7 +137,7 @@
             // 
             // BtnAddWorker
             // 
-            this.BtnAddWorker.Location = new System.Drawing.Point(42, 247);
+            this.BtnAddWorker.Location = new System.Drawing.Point(42, 253);
             this.BtnAddWorker.Name = "BtnAddWorker";
             this.BtnAddWorker.Size = new System.Drawing.Size(184, 42);
             this.BtnAddWorker.TabIndex = 6;
@@ -127,8 +148,9 @@
             // TxtPassword
             // 
             this.TxtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPassword.Location = new System.Drawing.Point(42, 196);
+            this.TxtPassword.Location = new System.Drawing.Point(42, 202);
             this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(184, 24);
             this.TxtPassword.TabIndex = 5;
             // 
@@ -136,7 +158,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(106, 167);
+            this.label4.Location = new System.Drawing.Point(106, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 20);
             this.label4.TabIndex = 4;
@@ -178,33 +200,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Ad,Soyad";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Ad,Soyad";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "E-poçt";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Şifrə";
-            this.Column4.Name = "Column4";
-            // 
             // WorkerProfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1094, 576);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DgvWorkers);

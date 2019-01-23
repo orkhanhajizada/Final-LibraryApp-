@@ -27,17 +27,19 @@ namespace Library
         }
 
         //Uzuvlerin doldurulmasi
-        private void FillMembers()
+        public void FillMembers()
         {
             DgvMembers.Rows.Clear();
 
             foreach (Models.Member table in db.Members.ToList())
             {
-                DgvMembers.Rows.Add(table.Id, table.MemberName, table.Phone, table.MemberNumber.ToString(), table.CreateTime.ToString("dd/MM/yyyy"),table.User.UserName);
+                if (table.MemberStatus == true)
+                {
+                    DgvMembers.Rows.Add(table.Id, table.MemberName, table.Phone, table.MemberNumber.ToString(), table.CreateTime.ToString("dd/MM/yyyy"), table.User.UserName);
+
+                }
             }
         }
-
-        
 
         //Uzuv elave etmek
         private void BtnAddMember_Click(object sender, EventArgs e)
@@ -61,7 +63,8 @@ namespace Library
                 Phone = TxtPhone.Text,
                 CreateTime = DateTime.Now,
                 UserId = SentUser.Id,
-                MemberNumber = DateTime.Now.ToString("yyMMddHHmmss")
+                MemberNumber = DateTime.Now.ToString("yyMMddHHmmss"),
+                MemberStatus = true
 
             };
             db.Members.Add(mem);
@@ -71,6 +74,7 @@ namespace Library
             FillMembers();
             Reset();
         }
+
         //Inputlari sifirlamaq
         private void Reset()
         {
@@ -119,19 +123,19 @@ namespace Library
             Reset();
         }
 
+        //Useri silmek
         private void BtnDeleteMember_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
-                db.Members.Remove(SelectedMember);
+                SelectedMember.MemberStatus = false;
 
                 db.SaveChanges();
 
                 Reset();
             }
         }
-
 
         //Uzv axtarmaq
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -149,7 +153,11 @@ namespace Library
                     {
                         foreach (var search in members)
                         {
-                            DgvMembers.Rows.Add(search.Id, search.MemberName, search.Phone, search.MemberNumber.ToString(), search.CreateTime.ToString("dd/MM/yyyy"), search.User.UserName);
+                            if (search.MemberStatus == true)
+                            {
+                                DgvMembers.Rows.Add(search.Id, search.MemberName, search.Phone, search.MemberNumber.ToString(), search.CreateTime.ToString("dd/MM/yyyy"), search.User.UserName);
+
+                            }
                         }
                     }
                     else
@@ -162,7 +170,7 @@ namespace Library
                 {
                     MessageBox.Show("Axtardığınız üzvün adını yazın!");
                 }
-                
+
             }
 
             //Uzv nomresine gore axtarmaq
@@ -178,7 +186,11 @@ namespace Library
                     {
                         foreach (var numbers in memberNumber)
                         {
-                            DgvMembers.Rows.Add(numbers.Id, numbers.MemberName, numbers.Phone, numbers.MemberNumber.ToString(), numbers.CreateTime.ToString("dd/MM/yyyy"), numbers.User.UserName);
+                            if (numbers.MemberStatus == true)
+                            {
+                                DgvMembers.Rows.Add(numbers.Id, numbers.MemberName, numbers.Phone, numbers.MemberNumber.ToString(), numbers.CreateTime.ToString("dd/MM/yyyy"), numbers.User.UserName);
+
+                            }
                         }
                     }
                     else
@@ -193,13 +205,40 @@ namespace Library
             }
         }
 
+        //Axtarışı yalnız 1 inputa görə axtarmaq
+        #region
+        private void CheckName_CheckedChanged(object sender, EventArgs e)
+        {
+            checkId.Checked = false;
+        }
+
+        private void checkId_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckName.Checked = false;
+        }
+        #endregion
+
         //Axtarishi refresh etmek
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             TxtSerachName.Clear();
             TxtMemberNumber.Clear();
+            checkId.Checked = false;
+            CheckName.Checked = false;
+            FillMembers();
+        }
+
+        //Silinen uzvler menusunu achmaq
+        private void BtnDeleted_Click(object sender, EventArgs e)
+        {
+            DeletedMembersList DeletedMember = new DeletedMembersList(SentUser);
+
+            DeletedMember.ShowDialog();
+        }
+
+        private void DeletedMembersList_FormClosed(object sender, FormClosedEventArgs e)
+        {
             FillMembers();
         }
     }
 }
-

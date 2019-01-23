@@ -196,7 +196,6 @@ namespace Library
                 }
         }
 
-
         //Axtarish etmek
         private void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -322,6 +321,7 @@ namespace Library
                 }
             }
         }
+
         //Axtarışı yalnız 1 inputa görə axtarmaq
         #region
         private void CheckName_CheckedChanged(object sender, EventArgs e)
@@ -393,10 +393,17 @@ namespace Library
             int a = (td - dt).Days;
             TxtDelayedDays.Text = a.ToString();
             LblId.Text = id.ToString();
-            
+
+            LblDayCount.Visible = true;
+            TxtDelayedDays.Visible = true;
+            LblFinePrice.Visible = true;
+            NumFinePrice.Visible = true;
+            BtnTakeBook.Visible = true;
+            BtnDeleteReserve.Visible = true;
+            BtnGetBook.Visible = false;
+
+
         }
-
-
 
         //Kitabi tehvil almaq
         private void BtnTakeBook_Click(object sender, EventArgs e)
@@ -414,6 +421,24 @@ namespace Library
             MessageBox.Show("Kitab təhvil alındı");
             FillGivenBooks();
 
+        }
+
+        //Forma klik edende yeniden bezi button ve inputlarin visible`i true veya false olmagi
+        private void MainMenu_Click(object sender, EventArgs e)
+        {
+            LblDayCount.Visible = false;
+            TxtDelayedDays.Visible = false;
+            LblFinePrice.Visible = false;
+            NumFinePrice.Visible = false;
+            BtnTakeBook.Visible = false;
+            BtnDeleteReserve.Visible = false;
+            BtnGetBook.Visible = true;
+            TxtMemberId.Clear();
+            TxtMemberFullName.Clear();
+            TxtBookName.Clear();
+            CmbBookList.Text = "";
+            CmbBookStatus.SelectedIndex = -1;
+            CmbBookList.Items.Clear();
         }
     };
 }

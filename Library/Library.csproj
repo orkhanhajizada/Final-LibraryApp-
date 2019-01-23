@@ -61,6 +61,18 @@
     <Compile Include="AddBooks.Designer.cs">
       <DependentUpon>AddBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeletedBookList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletedBookList.Designer.cs">
+      <DependentUpon>DeletedBookList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletedMembersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletedMembersList.Designer.cs">
+      <DependentUpon>DeletedMembersList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -126,6 +138,12 @@
     </Compile>
     <EmbeddedResource Include="AddBooks.resx">
       <DependentUpon>AddBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletedBookList.resx">
+      <DependentUpon>DeletedBookList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletedMembersList.resx">
+      <DependentUpon>DeletedMembersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

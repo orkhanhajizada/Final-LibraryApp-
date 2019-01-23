@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="dbba04368c6d49e095351754c14f300d" Name="Diagram1">
-        <EntityTypeShape EntityType="LibraryModel.BookList" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LibraryModel.BookStatu" Width="1.5" PointX="7.375" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="LibraryModel.User" Width="1.5" PointX="0.5" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="LibraryModel.FK_BookList_Users" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="LibraryModel.Member" Width="1.5" PointX="2.75" PointY="5.125" />
-        <AssociationConnector Association="LibraryModel.FK_Members_Users" />
         <EntityTypeShape EntityType="LibraryModel.ReservedBook" Width="1.5" PointX="9.625" PointY="2.375" />
-        <AssociationConnector Association="LibraryModel.FK_ReservedBooks_BookList" />
         <AssociationConnector Association="LibraryModel.FK_ReservedBooks_BookStatus" />
-        <AssociationConnector Association="LibraryModel.FK_ReservedBooks_Members" />
+        <EntityTypeShape EntityType="LibraryModel.User" Width="1.5" PointX="0.75" PointY="2.875" />
         <AssociationConnector Association="LibraryModel.FK_ReservedBooks_Users" />
+        <EntityTypeShape EntityType="LibraryModel.Member" Width="1.5" PointX="3" PointY="3.625" />
+        <AssociationConnector Association="LibraryModel.FK_Members_Users" />
+        <AssociationConnector Association="LibraryModel.FK_ReservedBooks_Members" />
+        <EntityTypeShape EntityType="LibraryModel.BookList" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="LibraryModel.FK_BookList_Users" />
+        <AssociationConnector Association="LibraryModel.FK_ReservedBooks_BookList" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

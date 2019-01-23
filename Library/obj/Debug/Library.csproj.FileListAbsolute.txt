@@ -37,3 +37,5 @@ C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\o
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.pdb
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.csprojAssemblyReference.cache
 C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.ReturnBookMenu.resources
+C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.DeletedMembersList.resources
+C:\Users\Orkhan Hajizada\Source\Repos\orkhanhajizada\Final-LibraryApp-\Library\obj\Debug\Library.DeletedBookList.resources
