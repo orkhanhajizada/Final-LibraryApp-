@@ -46,12 +46,13 @@ namespace Library
                 TxtPassword.Clear();
             }
 
-            //if(user.UserStatus == false)
-            //{
-            //    MessageBox.Show("Bu adda istifadəçi artıq silinmişdir!");
-            //    TxtEmail.Clear();
-            //    TxtPassword.Clear();
-            //}
+            //User silinibse girish etmek mumkun olmasin
+            if (user.UserStatus == false)
+            {
+                MessageBox.Show("Bu adda istifadəçi artıq silinmişdir!");
+                TxtEmail.Clear();
+                TxtPassword.Clear();
+            }
 
             //eger bu emailde istifadechi varsa
             else

@@ -54,7 +54,7 @@ namespace Library
 
             if (db.Members.FirstOrDefault(t => t.Phone == TxtPhone.Text) != null)
             {
-                MessageBox.Show("Bu nömrədən artıq istifadə olunub!");
+                MessageBox.Show("Bu nömrədən artıq istifadə olunmuşdur!");
                 return;
             }
 
@@ -220,7 +220,7 @@ namespace Library
             }
         }
 
-        //Axtarışı yalnız 1 inputa görə axtarmaq
+        //Axtarışı yalnız 1 inputa görə axtarmaq/1 checkbox sechmek
         #region
         private void CheckName_CheckedChanged(object sender, EventArgs e)
         {

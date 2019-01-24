@@ -21,6 +21,7 @@ namespace Library
             sentUser = user;
             InitializeComponent();
             FillReturnBooks();
+            SumFine();
         }
 
         //Qaytarilan kitablari datagridview`a doldurmaq
@@ -33,7 +34,7 @@ namespace Library
                 if (table.ReturnTime != null)
                 {
                     DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.ReturnTime?.ToString("dd/MM/yyyy"), table.BookStatu.Status,table.FinePrice.ToString("0.00" + " " + "AZN"), table.User.UserName);
-                    
+                    SumFine();
                 }
             }
         }
@@ -57,7 +58,7 @@ namespace Library
                             if(search.ReturnTime != null)
                             {
                                 DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.ReturnTime?.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.FinePrice.ToString("0.00" + " " + "AZN"), search.User.UserName);
-                                
+                                SumFine();
                             }
                         }
                     }
@@ -89,7 +90,7 @@ namespace Library
                             if (search.ReturnTime != null)
                             {
                                 DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.ReturnTime?.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.FinePrice.ToString("0.00" + " " + "AZN"), search.User.UserName);
-                                
+                                SumFine();
                             }
                         }
                     }
@@ -100,7 +101,7 @@ namespace Library
                 }
                 else
                 {
-                    MessageBox.Show("Axtardığınız üzvün adını yazın!");
+                    MessageBox.Show("Axtardığınız kitabın adını yazın!");
                 }
 
 
@@ -119,7 +120,7 @@ namespace Library
                         if (giveTime.ReturnTime != null)
                         {
                             DgvGivenBooksList.Rows.Add(giveTime.Id.ToString(), giveTime.Member.MemberName, giveTime.Member.MemberNumber, giveTime.BookList.Name, giveTime.StartTime.ToString("dd/MM/yyyy"), giveTime.EndTime.ToString("dd/MM/yyyy"), giveTime.ReturnTime?.ToString("dd/MM/yyyy"), giveTime.BookStatu.Status, giveTime.FinePrice.ToString("0.00" + " " + "AZN"), giveTime.User.UserName);
-                            
+                            SumFine();
                         }
                     }
                 }
@@ -142,7 +143,7 @@ namespace Library
                         if (returnTime.ReturnTime != null)
                         {
                             DgvGivenBooksList.Rows.Add(returnTime.Id.ToString(), returnTime.Member.MemberName, returnTime.Member.MemberNumber, returnTime.BookList.Name, returnTime.StartTime.ToString("dd/MM/yyyy"), returnTime.EndTime.ToString("dd/MM/yyyy"), returnTime.ReturnTime?.ToString("dd/MM/yyyy"), returnTime.BookStatu.Status, returnTime.FinePrice.ToString("0.00" + " " + "AZN"), returnTime.User.UserName);
-                            
+                            SumFine();
                         }
                     }
                 }
@@ -165,6 +166,7 @@ namespace Library
                         if (ReturnBookTime.ReturnTime != null)
                         {
                             DgvGivenBooksList.Rows.Add(ReturnBookTime.Id.ToString(), ReturnBookTime.Member.MemberName, ReturnBookTime.Member.MemberNumber, ReturnBookTime.BookList.Name, ReturnBookTime.StartTime.ToString("dd/MM/yyyy"), ReturnBookTime.EndTime.ToString("dd/MM/yyyy"), ReturnBookTime.ReturnTime?.ToString("dd/MM/yyyy"), ReturnBookTime.BookStatu.Status, ReturnBookTime.FinePrice.ToString("0.00" + " " + "AZN"), ReturnBookTime.User.UserName);
+                            SumFine();
                         }
                     }
                 }
@@ -190,7 +192,7 @@ namespace Library
                             if (numbers.ReturnTime != null)
                             {
                                 DgvGivenBooksList.Rows.Add(numbers.Id.ToString(), numbers.Member.MemberName, numbers.Member.MemberNumber, numbers.BookList.Name, numbers.StartTime.ToString("dd/MM/yyyy"), numbers.EndTime.ToString("dd/MM/yyyy"), numbers.ReturnTime?.ToString("dd/MM/yyyy"), numbers.BookStatu.Status, numbers.FinePrice.ToString("0.00" + " " + "AZN"), numbers.User.UserName);
-                                
+                                SumFine();
                             }
                         }
                     }
@@ -276,14 +278,20 @@ namespace Library
             checkGivenFrom.Checked = false;
             checkId.Checked = false;
             FillReturnBooks();
+            SumFine();
         }
 
 
         //Cerime mebleginin cemlenmesi
-        //private void SumFine()
-        //{
-        //    decimal total = DgvGivenBooksList.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToDecimal(t.Cells[8].ToString().Split('.')[0]));
-        //    LblTotal.Text = total.ToString() + "AZN";
-        //}
+        private void SumFine()
+        {
+            decimal sum = 0;
+            for (int i = 0; i < DgvGivenBooksList.Rows.Count-1; ++i)
+            {
+                sum += Convert.ToDecimal(DgvGivenBooksList.Rows[i].Cells[8].Value.ToString().Split(' ')[0]);
+            }
+
+            LblTotal.Text = sum.ToString("0.00")+" "+"AZN";
+        }
     }
 }

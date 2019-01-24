@@ -230,7 +230,8 @@ namespace Library
                     MessageBox.Show("Axtardığınız üzvün adını yazın!");
                 }
             }
-
+            
+         //Kitab adina gore axtarmaq
             if (checkBookName.Checked == true)
             {
 
@@ -326,7 +327,7 @@ namespace Library
             }
         }
 
-        //Axtarışı yalnız 1 inputa görə axtarmaq
+        //Axtarışı yalnız 1 inputa görə axtarmaq/yalniz 1 checkbox seche bilmek
         #region
         private void CheckName_CheckedChanged(object sender, EventArgs e)
         {
