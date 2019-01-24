@@ -102,6 +102,7 @@
             // 
             // BtnRecovery
             // 
+            this.BtnRecovery.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRecovery.Location = new System.Drawing.Point(848, 15);
             this.BtnRecovery.Name = "BtnRecovery";
             this.BtnRecovery.Size = new System.Drawing.Size(179, 39);

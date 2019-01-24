@@ -57,6 +57,7 @@
             // BtnEnter
             // 
             this.BtnEnter.BackColor = System.Drawing.Color.Teal;
+            this.BtnEnter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEnter.Location = new System.Drawing.Point(53, 217);
             this.BtnEnter.Name = "BtnEnter";
             this.BtnEnter.Size = new System.Drawing.Size(179, 42);
@@ -115,7 +116,7 @@
             this.Controls.Add(this.GrbLogin);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "LOGIN";
             this.GrbLogin.ResumeLayout(false);
             this.GrbLogin.PerformLayout();
             this.ResumeLayout(false);

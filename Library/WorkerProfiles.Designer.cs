@@ -115,6 +115,7 @@
             // 
             // BtnDeleteWorker
             // 
+            this.BtnDeleteWorker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDeleteWorker.Location = new System.Drawing.Point(137, 304);
             this.BtnDeleteWorker.Name = "BtnDeleteWorker";
             this.BtnDeleteWorker.Size = new System.Drawing.Size(89, 42);
@@ -126,6 +127,7 @@
             // 
             // BtnUpdateWorker
             // 
+            this.BtnUpdateWorker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUpdateWorker.Location = new System.Drawing.Point(42, 304);
             this.BtnUpdateWorker.Name = "BtnUpdateWorker";
             this.BtnUpdateWorker.Size = new System.Drawing.Size(89, 42);
@@ -137,6 +139,7 @@
             // 
             // BtnAddWorker
             // 
+            this.BtnAddWorker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAddWorker.Location = new System.Drawing.Point(42, 253);
             this.BtnAddWorker.Name = "BtnAddWorker";
             this.BtnAddWorker.Size = new System.Drawing.Size(184, 42);

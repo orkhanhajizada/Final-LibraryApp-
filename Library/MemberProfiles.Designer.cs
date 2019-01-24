@@ -77,6 +77,7 @@
             // 
             // BtnDeleteMember
             // 
+            this.BtnDeleteMember.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDeleteMember.Location = new System.Drawing.Point(137, 242);
             this.BtnDeleteMember.Name = "BtnDeleteMember";
             this.BtnDeleteMember.Size = new System.Drawing.Size(89, 42);
@@ -88,6 +89,7 @@
             // 
             // BtnUpdateMember
             // 
+            this.BtnUpdateMember.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUpdateMember.Location = new System.Drawing.Point(42, 242);
             this.BtnUpdateMember.Name = "BtnUpdateMember";
             this.BtnUpdateMember.Size = new System.Drawing.Size(89, 42);
@@ -99,6 +101,7 @@
             // 
             // BtnAddMember
             // 
+            this.BtnAddMember.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAddMember.Location = new System.Drawing.Point(42, 191);
             this.BtnAddMember.Name = "BtnAddMember";
             this.BtnAddMember.Size = new System.Drawing.Size(184, 42);
@@ -279,6 +282,7 @@
             // 
             this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
             this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRefresh.Location = new System.Drawing.Point(227, 138);
             this.BtnRefresh.Name = "BtnRefresh";
@@ -291,6 +295,7 @@
             // 
             this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
             this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSearch.Location = new System.Drawing.Point(227, 55);
             this.BtnSearch.Name = "BtnSearch";
@@ -301,6 +306,7 @@
             // 
             // BtnDeleted
             // 
+            this.BtnDeleted.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDeleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDeleted.Location = new System.Drawing.Point(839, 658);
             this.BtnDeleted.Name = "BtnDeleted";

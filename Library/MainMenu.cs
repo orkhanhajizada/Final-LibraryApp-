@@ -69,26 +69,30 @@ namespace Library
             }
             if (!string.IsNullOrEmpty(TxtMemberId.Text))
             {
-
                 var Member = db.Members.Where(m => m.MemberNumber.Contains(TxtMemberId.Text));
 
                 Member mem = db.Members.FirstOrDefault(f => f.MemberNumber == TxtMemberId.Text);
                 if (mem == null)
                 {
-                    MessageBox.Show("yoxdu");
+                    MessageBox.Show("Axtardığınız üzv tapılmadı!");
+                    TxtMemberFullName.Clear();
+                    TxtMemberId.Clear();
+
+                }else if(mem.MemberStatus == false)
+                {
+                    MessageBox.Show("Axtardığınız üzv silinmişdir!");
+                    TxtMemberFullName.Clear();
+                    TxtMemberId.Clear();
                 }
                 else
                 {
                     foreach (Member names in Member)
                     {
                         TxtMemberFullName.Text = names.Id + "-" + names.MemberName;
-
                     }
                 }
 
             }
-
-
         }
 
         //Kitablarin ada gore axtarilmasi 
@@ -391,7 +395,15 @@ namespace Library
             DateTime td = DateTime.Now.Date;
             DateTime dt = SelectedReserve.EndTime.Date;
             int a = (td - dt).Days;
-            TxtDelayedDays.Text = a.ToString();
+
+            if(a < 0)
+            {
+                TxtDelayedDays.Text =Convert.ToString(0);
+            }
+            else
+            {
+                TxtDelayedDays.Text = a.ToString();
+            }
             LblId.Text = id.ToString();
 
             LblDayCount.Visible = true;

@@ -95,6 +95,7 @@
             // 
             // BtnRecoveryBook
             // 
+            this.BtnRecoveryBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRecoveryBook.Location = new System.Drawing.Point(708, 13);
             this.BtnRecoveryBook.Name = "BtnRecoveryBook";
             this.BtnRecoveryBook.Size = new System.Drawing.Size(179, 39);

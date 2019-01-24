@@ -33,7 +33,7 @@ namespace Library
                 if (table.ReturnTime != null)
                 {
                     DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.ReturnTime?.ToString("dd/MM/yyyy"), table.BookStatu.Status,table.FinePrice.ToString("0.00" + " " + "AZN"), table.User.UserName);
-
+                    
                 }
             }
         }
@@ -57,7 +57,7 @@ namespace Library
                             if(search.ReturnTime != null)
                             {
                                 DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.ReturnTime?.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.FinePrice.ToString("0.00" + " " + "AZN"), search.User.UserName);
-
+                                
                             }
                         }
                     }
@@ -89,7 +89,7 @@ namespace Library
                             if (search.ReturnTime != null)
                             {
                                 DgvGivenBooksList.Rows.Add(search.Id.ToString(), search.Member.MemberName, search.Member.MemberNumber, search.BookList.Name, search.StartTime.ToString("dd/MM/yyyy"), search.EndTime.ToString("dd/MM/yyyy"), search.ReturnTime?.ToString("dd/MM/yyyy"), search.BookStatu.Status, search.FinePrice.ToString("0.00" + " " + "AZN"), search.User.UserName);
-
+                                
                             }
                         }
                     }
@@ -119,6 +119,7 @@ namespace Library
                         if (giveTime.ReturnTime != null)
                         {
                             DgvGivenBooksList.Rows.Add(giveTime.Id.ToString(), giveTime.Member.MemberName, giveTime.Member.MemberNumber, giveTime.BookList.Name, giveTime.StartTime.ToString("dd/MM/yyyy"), giveTime.EndTime.ToString("dd/MM/yyyy"), giveTime.ReturnTime?.ToString("dd/MM/yyyy"), giveTime.BookStatu.Status, giveTime.FinePrice.ToString("0.00" + " " + "AZN"), giveTime.User.UserName);
+                            
                         }
                     }
                 }
@@ -141,6 +142,7 @@ namespace Library
                         if (returnTime.ReturnTime != null)
                         {
                             DgvGivenBooksList.Rows.Add(returnTime.Id.ToString(), returnTime.Member.MemberName, returnTime.Member.MemberNumber, returnTime.BookList.Name, returnTime.StartTime.ToString("dd/MM/yyyy"), returnTime.EndTime.ToString("dd/MM/yyyy"), returnTime.ReturnTime?.ToString("dd/MM/yyyy"), returnTime.BookStatu.Status, returnTime.FinePrice.ToString("0.00" + " " + "AZN"), returnTime.User.UserName);
+                            
                         }
                     }
                 }
@@ -188,7 +190,7 @@ namespace Library
                             if (numbers.ReturnTime != null)
                             {
                                 DgvGivenBooksList.Rows.Add(numbers.Id.ToString(), numbers.Member.MemberName, numbers.Member.MemberNumber, numbers.BookList.Name, numbers.StartTime.ToString("dd/MM/yyyy"), numbers.EndTime.ToString("dd/MM/yyyy"), numbers.ReturnTime?.ToString("dd/MM/yyyy"), numbers.BookStatu.Status, numbers.FinePrice.ToString("0.00" + " " + "AZN"), numbers.User.UserName);
-
+                                
                             }
                         }
                     }
@@ -275,5 +277,13 @@ namespace Library
             checkId.Checked = false;
             FillReturnBooks();
         }
+
+
+        //Cerime mebleginin cemlenmesi
+        //private void SumFine()
+        //{
+        //    decimal total = DgvGivenBooksList.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToDecimal(t.Cells[8].ToString().Split('.')[0]));
+        //    LblTotal.Text = total.ToString() + "AZN";
+        //}
     }
 }

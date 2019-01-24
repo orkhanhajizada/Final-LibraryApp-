@@ -196,6 +196,7 @@
             // 
             this.BtnRefresh.BackgroundImage = global::Library.Properties.Resources.refresh;
             this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRefresh.Location = new System.Drawing.Point(1168, 47);
             this.BtnRefresh.Name = "BtnRefresh";
@@ -258,6 +259,7 @@
             // 
             this.BtnSearch.BackgroundImage = global::Library.Properties.Resources.edit_find;
             this.BtnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSearch.Location = new System.Drawing.Point(1033, 48);
             this.BtnSearch.Name = "BtnSearch";
@@ -291,42 +293,50 @@
             // 
             this.Column1.HeaderText = "Id";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Üzvün adı";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Üzüvlük nömrəsi";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Kitabın adı";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Təhvil tarixi";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Təslim tarixi";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Kitabın vəziyyəti";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "İşçi";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // label9
             // 
@@ -436,6 +446,7 @@
             // 
             // BtnSearchBook
             // 
+            this.BtnSearchBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSearchBook.Location = new System.Drawing.Point(180, 275);
             this.BtnSearchBook.Name = "BtnSearchBook";
@@ -494,6 +505,7 @@
             // 
             // BtnDeleteReserve
             // 
+            this.BtnDeleteReserve.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDeleteReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDeleteReserve.Location = new System.Drawing.Point(327, 529);
             this.BtnDeleteReserve.Name = "BtnDeleteReserve";
@@ -505,6 +517,7 @@
             // 
             // BtnTakeBook
             // 
+            this.BtnTakeBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTakeBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTakeBook.Location = new System.Drawing.Point(95, 529);
             this.BtnTakeBook.Name = "BtnTakeBook";
@@ -517,6 +530,7 @@
             // 
             // BtnGetBook
             // 
+            this.BtnGetBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGetBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGetBook.Location = new System.Drawing.Point(324, 350);
             this.BtnGetBook.Name = "BtnGetBook";
@@ -603,6 +617,7 @@
             // 
             // BtnSearchMember
             // 
+            this.BtnSearchMember.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSearchMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSearchMember.Location = new System.Drawing.Point(196, 161);
             this.BtnSearchMember.Name = "BtnSearchMember";
@@ -634,6 +649,7 @@
             // 
             this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
             this.PbReturnBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbReturnBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbReturnBook.Location = new System.Drawing.Point(978, 23);
             this.PbReturnBook.Name = "PbReturnBook";
             this.PbReturnBook.Size = new System.Drawing.Size(85, 85);
@@ -645,6 +661,7 @@
             // 
             this.PbAddBook.BackgroundImage = global::Library.Properties.Resources.addbook;
             this.PbAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbAddBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbAddBook.Location = new System.Drawing.Point(667, 23);
             this.PbAddBook.Name = "PbAddBook";
             this.PbAddBook.Size = new System.Drawing.Size(85, 85);
@@ -656,6 +673,7 @@
             // 
             this.PbAddMember.BackgroundImage = global::Library.Properties.Resources.addmember;
             this.PbAddMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PbAddMember.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbAddMember.Location = new System.Drawing.Point(358, 23);
             this.PbAddMember.Name = "PbAddMember";
             this.PbAddMember.Size = new System.Drawing.Size(85, 85);
@@ -722,7 +740,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.DataGridView DgvGivenBooksList;
+        public System.Windows.Forms.DataGridView DgvGivenBooksList;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.TextBox TxtMemberNumber;

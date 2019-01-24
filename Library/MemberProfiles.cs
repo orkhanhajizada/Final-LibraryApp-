@@ -17,6 +17,7 @@ namespace Library
         LibraryEntities db = new LibraryEntities();
 
         private Models.Member SelectedMember;
+        private Models.ReservedBook SelectedMemId;
         public User SentUser;
 
         public MemberProfiles(User user)
@@ -116,6 +117,20 @@ namespace Library
 
             SelectedMember.MemberName = TxtName.Text;
             SelectedMember.Phone = TxtPhone.Text;
+            db.SaveChanges();
+
+            if (System.Windows.Forms.Application.OpenForms["MainMenu"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).DgvGivenBooksList.Rows.Clear();
+
+                foreach (Models.ReservedBook table in db.ReservedBooks.ToList())
+                {
+                    if (table.ReturnTime == null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.BookStatu.Status, table.User.UserName);
+                    }
+                }
+            }
 
             db.SaveChanges();
             FillMembers();
@@ -236,9 +251,5 @@ namespace Library
             DeletedMember.ShowDialog();
         }
 
-        private void DeletedMembersList_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FillMembers();
-        }
     }
 }
