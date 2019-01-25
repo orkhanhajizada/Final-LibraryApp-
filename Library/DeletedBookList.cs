@@ -41,6 +41,7 @@ namespace Library
         }
 
         //Kitabi berpa etmek
+        #region
         private void DgvDeletedBookList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int DeleteBook = Convert.ToInt32(DgvDeletedBookList.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -63,8 +64,9 @@ namespace Library
                     if (System.Windows.Forms.Application.OpenForms["AddBooks"] != null)
                     {
                         (System.Windows.Forms.Application.OpenForms["AddBooks"] as AddBooks).DgvBookList.Rows.Clear();
+                        (System.Windows.Forms.Application.OpenForms["AddBooks"] as AddBooks).db = db;
 
-                        foreach (Models.BookList table in db.BookLists.ToList())
+                    foreach (Models.BookList table in db.BookLists.ToList())
                         {
                         if (table.BookDelete == true)
                         {
@@ -80,6 +82,6 @@ namespace Library
                 MessageBox.Show("Kitabı seçin");
             }
         }
-
+        #endregion
     }
 }

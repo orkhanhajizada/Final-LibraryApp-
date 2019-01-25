@@ -14,7 +14,7 @@ namespace Library
     public partial class AddBooks : Form
     {
 
-        LibraryEntities db = new LibraryEntities();
+        public LibraryEntities db = new LibraryEntities();
 
         private Models.BookList SelectedBook;
         public User SentUser;
@@ -34,7 +34,7 @@ namespace Library
 
             foreach (Models.BookList table in db.BookLists.ToList())
             {
-               if(table.BookDelete == true)
+                if (table.BookDelete == true)
                 {
                     DgvBookList.Rows.Add(table.Id, table.Name, table.Count, table.CreateTime.ToString("dd/MM/yyyy"), table.User.UserName);
 
@@ -65,16 +65,14 @@ namespace Library
                 CreateTime = DateTime.Now,
                 UserId = SentUser.Id,
                 BookDelete = true
-                
-                
+
+
             };
             db.BookLists.Add(ListBook);
             db.SaveChanges();
 
-            FillBooks();
-            Reset();
         }
-
+        
         //Inputlari sifirlamaq
         private void Reset()
         {
@@ -115,6 +113,23 @@ namespace Library
             SelectedBook.Count = Convert.ToInt32(NumCount.Value);
 
             db.SaveChanges();
+
+            if (System.Windows.Forms.Application.OpenForms["MainMenu"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).DgvGivenBooksList.Rows.Clear();
+                (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).db = db;
+
+                foreach (Models.ReservedBook table in db.ReservedBooks.ToList())
+                {
+                    if (table.ReturnTime == null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.BookStatu.Status, table.User.UserName);
+                    }
+                }
+
+                FillBooks();
+                Reset();
+            }
             FillBooks();
 
             Reset();

@@ -14,7 +14,7 @@ namespace Library
 {
     public partial class MemberProfiles : Form
     {
-        LibraryEntities db = new LibraryEntities();
+        public LibraryEntities db = new LibraryEntities();
 
         private Models.Member SelectedMember;
         private Models.ReservedBook SelectedMemId;
@@ -122,7 +122,7 @@ namespace Library
             if (System.Windows.Forms.Application.OpenForms["MainMenu"] != null)
             {
                 (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).DgvGivenBooksList.Rows.Clear();
-
+                (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).db = db;
                 foreach (Models.ReservedBook table in db.ReservedBooks.ToList())
                 {
                     if (table.ReturnTime == null)

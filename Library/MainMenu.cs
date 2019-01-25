@@ -14,7 +14,7 @@ namespace Library
 {
     public partial class MainMenu : Form
     {
-        LibraryEntities db = new LibraryEntities();
+        public LibraryEntities db = new LibraryEntities();
         public User sentUser;
         private Models.ReservedBook SelectedReserve;
         public MainMenu(User user)

@@ -42,6 +42,7 @@ namespace Library
         }
 
         //Uzvu berpa etmek
+        #region
         private void DgvDeletedMembers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int DeletedMember = Convert.ToInt32(DgvDeletedMembers.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -64,7 +65,7 @@ namespace Library
                 if (System.Windows.Forms.Application.OpenForms["MemberProfiles"] != null)
                 {
                     (System.Windows.Forms.Application.OpenForms["MemberProfiles"] as MemberProfiles).DgvMembers.Rows.Clear();
-
+                    (System.Windows.Forms.Application.OpenForms["MemberProfiles"] as MemberProfiles).db = db;
                     foreach (Models.Member table in db.Members.ToList())
                     {
                         if (table.MemberStatus == true)
@@ -80,7 +81,8 @@ namespace Library
             {
                 MessageBox.Show("Üzvü seçin");
             }
-            
         }
+        #endregion
     }
+
 }
