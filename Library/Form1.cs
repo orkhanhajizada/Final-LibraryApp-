@@ -20,8 +20,9 @@ namespace Library
         public Form1()
         {
             InitializeComponent();
+            TxtEmail.Text = "orxan@gmail.com";
+            TxtPassword.Text = "123";
         }
-
 
         //Login etmek
         private void BtnEnter_Click(object sender, EventArgs e)

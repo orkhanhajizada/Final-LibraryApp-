@@ -123,15 +123,25 @@ namespace Library
         //Kitabi silmek
         private void BtnDeleteBook_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
-            if (r == DialogResult.Yes)
+            var result = SelectedBook.ReservedBooks.Where(b => SelectedBook.Id == b.BooksId && b.ReturnTime == null).ToList().Count();
+
+            if (result <= 0)
             {
-                SelectedBook.BookDelete = false;
+                DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+                    SelectedBook.BookDelete = false;
 
-                db.SaveChanges();
+                    db.SaveChanges();
 
-                Reset();
+                    Reset();
+                }
             }
+            else
+            {
+                MessageBox.Show("Bu kitab hazırda qaytarılmadığı üçün silmək mümkün deyil");
+            }
+            
         }
 
         //Kitab axtarmaq

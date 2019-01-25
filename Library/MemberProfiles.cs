@@ -128,6 +128,7 @@ namespace Library
                     if (table.ReturnTime == null)
                     {
                         (System.Windows.Forms.Application.OpenForms["MainMenu"] as MainMenu).DgvGivenBooksList.Rows.Add(table.Id.ToString(), table.Member.MemberName, table.Member.MemberNumber, table.BookList.Name, table.StartTime.ToString("dd/MM/yyyy"), table.EndTime.ToString("dd/MM/yyyy"), table.BookStatu.Status, table.User.UserName);
+                        
                     }
                 }
             }
@@ -141,15 +142,26 @@ namespace Library
         //Useri silmek
         private void BtnDeleteMember_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
-            if (r == DialogResult.Yes)
+            //Borcu olan uzvun silinmemesi
+            var result = SelectedMember.ReservedBooks.Where(b => SelectedMember.Id == b.MemberId && b.ReturnTime == null).ToList().Count();
+
+            if (result <= 0)
             {
-                SelectedMember.MemberStatus = false;
+                DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+                    SelectedMember.MemberStatus = false;
 
-                db.SaveChanges();
+                    db.SaveChanges();
 
-                Reset();
+                    Reset();
+                }
             }
+            else
+            {
+                MessageBox.Show("Bu üzvün hal hazırda kitab borcu olduqundan silmək mümkün deyil");
+            }
+            
         }
 
         //Uzv axtarmaq

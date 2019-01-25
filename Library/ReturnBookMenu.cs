@@ -266,6 +266,7 @@ namespace Library
 
         #endregion
 
+        //Axtarishi Refresh etmek
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             //Inputlarin ve checkboxlarin ichini temizlemek
@@ -280,7 +281,6 @@ namespace Library
             FillReturnBooks();
             SumFine();
         }
-
 
         //Cerime mebleginin cemlenmesi
         private void SumFine()

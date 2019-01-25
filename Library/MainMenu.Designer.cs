@@ -110,7 +110,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(337, 118);
+            this.label2.Location = new System.Drawing.Point(310, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 18);
             this.label2.TabIndex = 3;
@@ -120,7 +120,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(681, 118);
+            this.label3.Location = new System.Drawing.Point(652, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 18);
             this.label3.TabIndex = 5;
@@ -130,7 +130,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(958, 118);
+            this.label5.Location = new System.Drawing.Point(912, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 18);
             this.label5.TabIndex = 9;
@@ -333,6 +333,7 @@
             this.DtpReturnTime.Name = "DtpReturnTime";
             this.DtpReturnTime.Size = new System.Drawing.Size(200, 26);
             this.DtpReturnTime.TabIndex = 18;
+            this.DtpReturnTime.Value = new System.DateTime(2019, 1, 25, 11, 14, 45, 0);
             // 
             // DtpGivenTime
             // 
@@ -342,7 +343,7 @@
             this.DtpGivenTime.Name = "DtpGivenTime";
             this.DtpGivenTime.Size = new System.Drawing.Size(200, 26);
             this.DtpGivenTime.TabIndex = 16;
-            this.DtpGivenTime.Value = new System.DateTime(2019, 1, 20, 0, 0, 0, 0);
+            this.DtpGivenTime.Value = new System.DateTime(2019, 1, 25, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -430,6 +431,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(8, 607);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(558, 249);
             this.richTextBox1.TabIndex = 20;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
@@ -465,6 +467,7 @@
             this.BtnDeleteReserve.Text = "Sil";
             this.BtnDeleteReserve.UseVisualStyleBackColor = true;
             this.BtnDeleteReserve.Visible = false;
+            this.BtnDeleteReserve.Click += new System.EventHandler(this.BtnDeleteReserve_Click);
             // 
             // BtnTakeBook
             // 
@@ -601,7 +604,7 @@
             this.PbReturnBook.BackgroundImage = global::Library.Properties.Resources.returnbook;
             this.PbReturnBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PbReturnBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbReturnBook.Location = new System.Drawing.Point(978, 23);
+            this.PbReturnBook.Location = new System.Drawing.Point(932, 23);
             this.PbReturnBook.Name = "PbReturnBook";
             this.PbReturnBook.Size = new System.Drawing.Size(85, 85);
             this.PbReturnBook.TabIndex = 8;
@@ -613,7 +616,7 @@
             this.PbAddBook.BackgroundImage = global::Library.Properties.Resources.addbook;
             this.PbAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PbAddBook.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbAddBook.Location = new System.Drawing.Point(667, 23);
+            this.PbAddBook.Location = new System.Drawing.Point(638, 23);
             this.PbAddBook.Name = "PbAddBook";
             this.PbAddBook.Size = new System.Drawing.Size(85, 85);
             this.PbAddBook.TabIndex = 4;
@@ -625,7 +628,7 @@
             this.PbAddMember.BackgroundImage = global::Library.Properties.Resources.addmember;
             this.PbAddMember.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PbAddMember.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbAddMember.Location = new System.Drawing.Point(358, 23);
+            this.PbAddMember.Location = new System.Drawing.Point(331, 23);
             this.PbAddMember.Name = "PbAddMember";
             this.PbAddMember.Size = new System.Drawing.Size(85, 85);
             this.PbAddMember.TabIndex = 2;
@@ -653,7 +656,7 @@
             // 
             // Column2
             // 
-            this.Column2.FillWeight = 20F;
+            this.Column2.FillWeight = 25F;
             this.Column2.HeaderText = "Üzvün adı";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;

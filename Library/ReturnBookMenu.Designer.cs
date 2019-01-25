@@ -51,6 +51,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.DgvGivenBooksList = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtName = new System.Windows.Forms.TextBox();
+            this.TxtMemberNumber = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DtpReturnTimeFrom = new System.Windows.Forms.DateTimePicker();
+            this.DtpGivenTimeFrom = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,13 +68,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TxtName = new System.Windows.Forms.TextBox();
-            this.TxtMemberNumber = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.DtpReturnTimeFrom = new System.Windows.Forms.DateTimePicker();
-            this.DtpGivenTimeFrom = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGivenBooksList)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +138,7 @@
             this.DtpEndTimeTo.Name = "DtpEndTimeTo";
             this.DtpEndTimeTo.Size = new System.Drawing.Size(200, 26);
             this.DtpEndTimeTo.TabIndex = 39;
+            this.DtpEndTimeTo.Value = new System.DateTime(2019, 1, 25, 11, 14, 25, 0);
             // 
             // label4
             // 
@@ -157,6 +158,7 @@
             this.DtpReturnTimeTo.Name = "DtpReturnTimeTo";
             this.DtpReturnTimeTo.Size = new System.Drawing.Size(200, 26);
             this.DtpReturnTimeTo.TabIndex = 36;
+            this.DtpReturnTimeTo.Value = new System.DateTime(2019, 1, 25, 11, 14, 8, 0);
             // 
             // label3
             // 
@@ -186,12 +188,12 @@
             this.DtpGivenTimeTo.Name = "DtpGivenTimeTo";
             this.DtpGivenTimeTo.Size = new System.Drawing.Size(200, 26);
             this.DtpGivenTimeTo.TabIndex = 34;
-            this.DtpGivenTimeTo.Value = new System.DateTime(2019, 1, 23, 0, 0, 0, 0);
+            this.DtpGivenTimeTo.Value = new System.DateTime(2019, 1, 25, 0, 0, 0, 0);
             // 
             // CheckEnd
             // 
             this.CheckEnd.AutoSize = true;
-            this.CheckEnd.Location = new System.Drawing.Point(1074, 54);
+            this.CheckEnd.Location = new System.Drawing.Point(1090, 54);
             this.CheckEnd.Name = "CheckEnd";
             this.CheckEnd.Size = new System.Drawing.Size(18, 17);
             this.CheckEnd.TabIndex = 32;
@@ -206,6 +208,7 @@
             this.DtpEndTimeFrom.Name = "DtpEndTimeFrom";
             this.DtpEndTimeFrom.Size = new System.Drawing.Size(200, 26);
             this.DtpEndTimeFrom.TabIndex = 31;
+            this.DtpEndTimeFrom.Value = new System.DateTime(2019, 1, 25, 11, 14, 15, 0);
             // 
             // label1
             // 
@@ -271,7 +274,7 @@
             // checkReturn
             // 
             this.checkReturn.AutoSize = true;
-            this.checkReturn.Location = new System.Drawing.Point(494, 141);
+            this.checkReturn.Location = new System.Drawing.Point(502, 141);
             this.checkReturn.Name = "checkReturn";
             this.checkReturn.Size = new System.Drawing.Size(18, 17);
             this.checkReturn.TabIndex = 24;
@@ -281,7 +284,7 @@
             // checkGivenFrom
             // 
             this.checkGivenFrom.AutoSize = true;
-            this.checkGivenFrom.Location = new System.Drawing.Point(479, 52);
+            this.checkGivenFrom.Location = new System.Drawing.Point(491, 52);
             this.checkGivenFrom.Name = "checkGivenFrom";
             this.checkGivenFrom.Size = new System.Drawing.Size(18, 17);
             this.checkGivenFrom.TabIndex = 23;
@@ -342,57 +345,6 @@
             this.DgvGivenBooksList.Size = new System.Drawing.Size(1757, 636);
             this.DgvGivenBooksList.TabIndex = 10;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Üzvün adı";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Üzüvlük nömrəsi";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Kitabın adı";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Verilmə tarixi";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Qaytarılma tarixi";
-            this.Column6.Name = "Column6";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Qaytarılan tarix";
-            this.Column9.Name = "Column9";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Kitabın vəziyyəti";
-            this.Column7.Name = "Column7";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Cərimə məbləğı";
-            this.Column10.Name = "Column10";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "İşçi";
-            this.Column8.Name = "Column8";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -437,7 +389,7 @@
             this.DtpReturnTimeFrom.Name = "DtpReturnTimeFrom";
             this.DtpReturnTimeFrom.Size = new System.Drawing.Size(200, 26);
             this.DtpReturnTimeFrom.TabIndex = 18;
-            this.DtpReturnTimeFrom.Value = new System.DateTime(2019, 1, 23, 0, 0, 0, 0);
+            this.DtpReturnTimeFrom.Value = new System.DateTime(2019, 1, 25, 0, 0, 0, 0);
             // 
             // DtpGivenTimeFrom
             // 
@@ -447,7 +399,7 @@
             this.DtpGivenTimeFrom.Name = "DtpGivenTimeFrom";
             this.DtpGivenTimeFrom.Size = new System.Drawing.Size(200, 26);
             this.DtpGivenTimeFrom.TabIndex = 16;
-            this.DtpGivenTimeFrom.Value = new System.DateTime(2019, 1, 23, 0, 0, 0, 0);
+            this.DtpGivenTimeFrom.Value = new System.DateTime(2019, 1, 25, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -458,6 +410,58 @@
             this.label8.Size = new System.Drawing.Size(172, 20);
             this.label8.TabIndex = 17;
             this.label8.Text = "Qaytarılma Tarixindən";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 120F;
+            this.Column2.HeaderText = "Üzvün adı";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Üzüvlük nömrəsi";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Kitabın adı";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Verilmə tarixi";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Qaytarılma tarixi";
+            this.Column6.Name = "Column6";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Qaytarılan tarix";
+            this.Column9.Name = "Column9";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Kitabın vəziyyəti";
+            this.Column7.Name = "Column7";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Cərimə məbləğı";
+            this.Column10.Name = "Column10";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "İşçi";
+            this.Column8.Name = "Column8";
             // 
             // ReturnBookMenu
             // 
@@ -499,6 +503,14 @@
         private System.Windows.Forms.CheckBox CheckEnd;
         private System.Windows.Forms.DateTimePicker DtpEndTimeFrom;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker DtpGivenTimeTo;
+        private System.Windows.Forms.DateTimePicker DtpEndTimeTo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker DtpReturnTimeTo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -509,13 +521,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker DtpGivenTimeTo;
-        private System.Windows.Forms.DateTimePicker DtpEndTimeTo;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker DtpReturnTimeTo;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label LblTotal;
     }
 }

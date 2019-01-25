@@ -100,7 +100,7 @@ namespace Library
         {
             CmbBookList.Items.Clear();
 
-            var bookslists = db.BookLists.Where(m => m.Name.Contains(TxtBookName.Text));
+            var bookslists = db.BookLists.Where(m => m.Name.Contains(TxtBookName.Text) && m.BookDelete == true);
 
             List<BookList> books = db.BookLists.Where(i => DbFunctions.Like(TxtBookName.Text, "%Name%")).ToList();
 
@@ -209,7 +209,7 @@ namespace Library
                 
                 DgvGivenBooksList.Rows.Clear();
 
-                var members = db.ReservedBooks.Where(m => m.Member.MemberName.Contains(TxtName.Text));
+                var members = db.ReservedBooks.Where(m => m.Member.MemberName.Contains(TxtName.Text) && m.ReturnTime == null);
 
                 if (!string.IsNullOrEmpty(TxtName.Text))
                 {
@@ -237,7 +237,7 @@ namespace Library
 
                 DgvGivenBooksList.Rows.Clear();
 
-                var members = db.ReservedBooks.Where(m => m.BookList.Name.Contains(TxtSearchBook.Text));
+                var members = db.ReservedBooks.Where(m => m.BookList.Name.Contains(TxtSearchBook.Text) && m.ReturnTime == null);
 
                 if (!string.IsNullOrEmpty(TxtSearchBook.Text))
                 {
@@ -266,7 +266,7 @@ namespace Library
             {
                 DgvGivenBooksList.Rows.Clear();
 
-                var startTime = db.ReservedBooks.Where(m => m.StartTime == DtpGivenTime.Value.Date);
+                var startTime = db.ReservedBooks.Where(m => m.StartTime == DtpGivenTime.Value.Date && m.ReturnTime == null);
                 if (startTime != null)
                 {
                     foreach (var giveTime in startTime)
@@ -285,7 +285,7 @@ namespace Library
             {
                 DgvGivenBooksList.Rows.Clear();
 
-                var endTime = db.ReservedBooks.Where(m => m.EndTime == DtpReturnTime.Value.Date);
+                var endTime = db.ReservedBooks.Where(m => m.EndTime == DtpReturnTime.Value.Date && m.ReturnTime == null);
                 if (endTime != null)
                 {
                     foreach (var returnTime in endTime)
@@ -304,7 +304,7 @@ namespace Library
             {
                 DgvGivenBooksList.Rows.Clear();
 
-                var memberNumber = db.ReservedBooks.Where(m => m.Member.MemberNumber.Contains(TxtMemberNumber.Text));
+                var memberNumber = db.ReservedBooks.Where(m => m.Member.MemberNumber.Contains(TxtMemberNumber.Text) && m.ReturnTime == null);
 
                 if (!string.IsNullOrEmpty(TxtMemberNumber.Text))
                 {
@@ -436,8 +436,8 @@ namespace Library
 
         }
 
-        //Forma klik edende yeniden bezi button ve inputlarin visible`i true veya false olmagi
-        private void MainMenu_Click(object sender, EventArgs e)
+        //Inputlari sifirlamaq
+        private void Reset()
         {
             LblDayCount.Visible = false;
             TxtDelayedDays.Visible = false;
@@ -452,6 +452,28 @@ namespace Library
             CmbBookList.Text = "";
             CmbBookStatus.SelectedIndex = -1;
             CmbBookList.Items.Clear();
+        }
+
+        //Forma klik edende yeniden bezi button ve inputlarin visible`i true veya false olmagi
+        private void MainMenu_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        //Tehvil verilen kitabi silmek
+        private void BtnDeleteReserve_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Silməyə əminsiniz mi?", "Silmə", MessageBoxButtons.YesNo);
+            if (r == DialogResult.Yes)
+            {
+                var id = db.ReservedBooks.FirstOrDefault(m => m.Id == SelectedReserve.Id);
+
+                db.ReservedBooks.Remove(id);
+                db.SaveChanges();
+
+                FillGivenBooks();
+                Reset();
+            }
         }
     };
 }

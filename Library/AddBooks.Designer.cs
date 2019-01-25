@@ -30,11 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.DgvBookList = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.NumCount = new System.Windows.Forms.NumericUpDown();
             this.BtnDeleteBook = new System.Windows.Forms.Button();
@@ -49,6 +44,11 @@
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.BtnDeletedBooks = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookList)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumCount)).BeginInit();
@@ -81,32 +81,6 @@
             this.DgvBookList.Size = new System.Drawing.Size(711, 597);
             this.DgvBookList.TabIndex = 6;
             this.DgvBookList.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBookList_RowHeaderMouseDoubleClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Kitabın adı";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Say";
-            this.Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Yaradılma tarixi";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Əlavə edən şəxs";
-            this.Column4.Name = "Column4";
             // 
             // groupBox1
             // 
@@ -278,6 +252,33 @@
             this.BtnDeletedBooks.UseVisualStyleBackColor = true;
             this.BtnDeletedBooks.Click += new System.EventHandler(this.BtnDeletedBooks_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 120F;
+            this.Column2.HeaderText = "Kitabın adı";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Say";
+            this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Yaradılma tarixi";
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Əlavə edən şəxs";
+            this.Column4.Name = "Column4";
+            // 
             // AddBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,11 +314,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.NumericUpDown NumCount;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Button BtnSearch;
@@ -325,5 +321,10 @@
         private System.Windows.Forms.TextBox TxtSearchBook;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button BtnDeletedBooks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
